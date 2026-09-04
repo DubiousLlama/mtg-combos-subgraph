@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtg-combos-subgraph"
+version = "0.1.0"
+description = "Build the two-card infinite combo graph from Commander Spellbook bulk data and search it for a dense 50-card subgraph."
+requires-python = ">=3.10"
+dependencies = [
+    "ijson>=3.2",
+    "numpy>=1.24",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+spellbook-graph = "spellbook_graph.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["spellbook_graph*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

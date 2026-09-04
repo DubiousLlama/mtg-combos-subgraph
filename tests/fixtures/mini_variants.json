@@ -1,0 +1,2058 @@
+{
+ "timestamp": "2026-09-01T00:00:00+00:00",
+ "version": "test",
+ "variants": [
+  {
+   "id": "1-2",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 1,
+      "name": "Thassa's Oracle",
+      "oracleId": "oracle-thassas",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Merfolk Wizard",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 2,
+      "name": "Demonic Consultation",
+      "oracleId": "oracle-consult",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 5909,
+      "name": "Win the game",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "UB",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "1-3",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 1,
+      "name": "Thassa's Oracle",
+      "oracleId": "oracle-thassas",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Merfolk Wizard",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 3,
+      "name": "Tainted Pact",
+      "oracleId": "oracle-pact",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 5909,
+      "name": "Win the game",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "UB",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "4-5",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 4,
+      "name": "Kiki-Jiki, Mirror Breaker",
+      "oracleId": "oracle-kiki",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Creature \u2014 Goblin Shaman",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 5,
+      "name": "Zealous Conscripts",
+      "oracleId": "oracle-conscripts",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Human Warrior",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 9855,
+      "name": "Infinite ETB",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    },
+    {
+     "feature": {
+      "id": 6794,
+      "name": "Infinite hasty creature tokens",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "R",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "4-6",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 4,
+      "name": "Kiki-Jiki, Mirror Breaker",
+      "oracleId": "oracle-kiki",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Creature \u2014 Goblin Shaman",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 6,
+      "name": "Pestermite",
+      "oracleId": "oracle-pestermite",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Faerie Rogue",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 9855,
+      "name": "Infinite ETB",
+      "uncountable": false,
+      "status": "HU"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "UR",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "7-8",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 7,
+      "name": "Isochron Scepter",
+      "oracleId": "oracle-scepter",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 4834,
+      "name": "Infinite untap of nonland permanents",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    },
+    {
+     "feature": {
+      "id": 4467,
+      "name": "Infinite colorless mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "U",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 4,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "7-8b",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 7,
+      "name": "Isochron Scepter",
+      "oracleId": "oracle-scepter",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 1509,
+      "name": "Infinite mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "U",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 6,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 50,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "10-8",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 10,
+      "name": "Najeela, the Blade-Blossom",
+      "oracleId": "oracle-najeela",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Creature \u2014 Human Warrior",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "C"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": true,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 4666,
+      "name": "Infinite combat phases",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "WUBRG",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "11-8",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 11,
+      "name": "Derevi, Empyrial Tactician",
+      "oracleId": "oracle-derevi",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Creature \u2014 Bird Wizard",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "C"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 1741,
+      "name": "Infinite untap",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "GWU",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "9-8",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 9,
+      "name": "Sol Ring",
+      "oracleId": "oracle-solring",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 9604,
+      "name": "Near-infinite colorless mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "U",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "4-t",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 4,
+      "name": "Kiki-Jiki, Mirror Breaker",
+      "oracleId": "oracle-kiki",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Creature \u2014 Goblin Shaman",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 6,
+      "name": "Pestermite",
+      "oracleId": "oracle-pestermite",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Faerie Rogue",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [
+    {
+     "template": {
+      "id": 7,
+      "name": "A creature with power 4 or greater",
+      "scryfallQuery": "t:creature pow>=4",
+      "scryfallApi": null
+     },
+     "zoneLocations": [
+      "B"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1
+    }
+   ],
+   "produces": [
+    {
+     "feature": {
+      "id": 3836,
+      "name": "Infinite damage",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "UR",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "4-5-6",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 4,
+      "name": "Kiki-Jiki, Mirror Breaker",
+      "oracleId": "oracle-kiki",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Creature \u2014 Goblin Shaman",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 5,
+      "name": "Zealous Conscripts",
+      "oracleId": "oracle-conscripts",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Human Warrior",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 6,
+      "name": "Pestermite",
+      "oracleId": "oracle-pestermite",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Faerie Rogue",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 3836,
+      "name": "Infinite damage",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "UR",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "13-8",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 13,
+      "name": "Paradox Engine",
+      "oracleId": "oracle-paradox",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Legendary Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 1509,
+      "name": "Infinite mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "U",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": false,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "12-8",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 12,
+      "name": "Unreleased Card",
+      "oracleId": "oracle-unreleased",
+      "spoiler": true,
+      "faces": [],
+      "typeLine": "Creature",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 1509,
+      "name": "Infinite mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "U",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": true,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "7-9",
+   "status": "E",
+   "uses": [
+    {
+     "card": {
+      "id": 7,
+      "name": "Isochron Scepter",
+      "oracleId": "oracle-scepter",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 9,
+      "name": "Sol Ring",
+      "oracleId": "oracle-solring",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 1509,
+      "name": "Infinite mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "C",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "5-6",
+   "status": "NR",
+   "uses": [
+    {
+     "card": {
+      "id": 5,
+      "name": "Zealous Conscripts",
+      "oracleId": "oracle-conscripts",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Human Warrior",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 6,
+      "name": "Pestermite",
+      "oracleId": "oracle-pestermite",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Creature \u2014 Faerie Rogue",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 9855,
+      "name": "Infinite ETB",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "UR",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  },
+  {
+   "id": "9-9",
+   "status": "OK",
+   "uses": [
+    {
+     "card": {
+      "id": 9,
+      "name": "Sol Ring",
+      "oracleId": "oracle-solring",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Artifact",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 2,
+     "usedFace": null
+    },
+    {
+     "card": {
+      "id": 8,
+      "name": "Dramatic Reversal",
+      "oracleId": "oracle-reversal",
+      "spoiler": false,
+      "faces": [],
+      "typeLine": "Instant",
+      "imageUriFrontPng": null,
+      "imageUriFrontLarge": null,
+      "imageUriFrontNormal": null,
+      "imageUriFrontSmall": null,
+      "imageUriFrontArtCrop": null,
+      "layoutRotationFront": null,
+      "imageUriBackPng": null,
+      "imageUriBackLarge": null,
+      "imageUriBackNormal": null,
+      "imageUriBackSmall": null,
+      "imageUriBackArtCrop": null
+     },
+     "zoneLocations": [
+      "H"
+     ],
+     "battlefieldCardState": "",
+     "exileCardState": "",
+     "libraryCardState": "",
+     "graveyardCardState": "",
+     "mustBeCommander": false,
+     "quantity": 1,
+     "usedFace": null
+    }
+   ],
+   "requires": [],
+   "produces": [
+    {
+     "feature": {
+      "id": 1509,
+      "name": "Infinite mana",
+      "uncountable": false,
+      "status": "S"
+     },
+     "quantity": 1
+    }
+   ],
+   "of": [
+    {
+     "id": 1
+    }
+   ],
+   "includes": [
+    {
+     "id": 1
+    }
+   ],
+   "identity": "U",
+   "manaNeeded": "{2}",
+   "manaValueNeeded": 2,
+   "easyPrerequisites": "",
+   "notablePrerequisites": "",
+   "description": "...",
+   "notes": "",
+   "popularity": 10,
+   "spoiler": false,
+   "bracketTag": "R",
+   "legalities": {
+    "commander": true,
+    "pauperCommanderMain": false,
+    "pauperCommander": false,
+    "oathbreaker": true,
+    "predh": false,
+    "standardBrawl": false,
+    "brawl": false,
+    "competitiveBrawl": false,
+    "alchemy": false,
+    "vintage": true,
+    "legacy": true,
+    "premodern": false,
+    "modern": false,
+    "pioneer": false,
+    "standard": false,
+    "pauper": false
+   },
+   "prices": {
+    "tcgplayer": "1.00",
+    "cardkingdom": "1.00",
+    "cardmarket": "1.00"
+   },
+   "variantCount": 1
+  }
+ ],
+ "aliases": []
+}

@@ -1,0 +1,3 @@
+# Bulk data downloads and built graphs are large; regenerate them with the CLI.
+*
+!.gitignore
