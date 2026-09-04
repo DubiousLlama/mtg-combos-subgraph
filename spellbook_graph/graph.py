@@ -123,6 +123,11 @@ class Edge:
     bracket_tags: set[str] = field(default_factory=set)
     features: set[str] = field(default_factory=set)
     max_popularity: int | None = None
+    clean: bool = False  # some variant has no notable prerequisites and battlefield/hand starts only
+    no_notable_prerequisites: bool = False
+    battlefield_or_hand: bool = False
+    clean_features: set[str] = field(default_factory=set)  # features produced by clean variants
+    variants: list[dict] = field(default_factory=list)  # per-variant: id, prerequisites, zones, features
 
     def add(self, variant: AcceptedVariant) -> None:
         self.variant_ids.append(variant.variant_id)
@@ -137,6 +142,18 @@ class Edge:
         if variant.bracket_tag:
             self.bracket_tags.add(variant.bracket_tag)
         self.features.update(variant.infinite_features)
+        self.no_notable_prerequisites |= not variant.notable_prerequisites
+        self.battlefield_or_hand |= variant.battlefield_or_hand
+        if variant.clean:
+            self.clean = True
+            self.clean_features.update(variant.infinite_features)
+        self.variants.append({
+            "id": variant.variant_id,
+            "notable_prerequisites": variant.notable_prerequisites,
+            "battlefield_or_hand": variant.battlefield_or_hand,
+            "commander_required": list(required),
+            "features": list(variant.infinite_features),
+        })
         if variant.popularity is not None:
             self.max_popularity = variant.popularity if self.max_popularity is None else max(self.max_popularity, variant.popularity)
 
@@ -153,6 +170,11 @@ class Edge:
             "bracket_tags": sorted(self.bracket_tags),
             "features": sorted(self.features),
             "max_popularity": self.max_popularity,
+            "clean": self.clean,
+            "no_notable_prerequisites": self.no_notable_prerequisites,
+            "battlefield_or_hand": self.battlefield_or_hand,
+            "clean_features": sorted(self.clean_features),
+            "variants": self.variants,
         }
 
 
@@ -293,6 +315,9 @@ class ComboGraph:
                 commander_required=set(e["commander_required"]), identity=_identity_set(e["identity"]),
                 min_mana_value_needed=e.get("min_mana_value_needed"), bracket_tags=set(e.get("bracket_tags", [])),
                 features=set(e.get("features", [])), max_popularity=e.get("max_popularity"),
+                clean=bool(e.get("clean", False)), no_notable_prerequisites=bool(e.get("no_notable_prerequisites", False)),
+                battlefield_or_hand=bool(e.get("battlefield_or_hand", False)), clean_features=set(e.get("clean_features", [])),
+                variants=list(e.get("variants", [])),
             )
             graph.edges[(edge.u, edge.v)] = edge
         return graph

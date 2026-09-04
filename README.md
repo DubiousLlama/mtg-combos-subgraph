@@ -94,15 +94,67 @@ Scryfall's oracle-cards bulk file by `oracle_id`.
 - `edges.tsv`: flat edge list with card names, for eyeballing.
 - `graph.npz`: `u`, `v`, `unconditional`, `n_variants`, `n_nodes` arrays for the optimiser.
 
-## Next step: the search
+## Step 2: the search
 
 Because every combo here has exactly two cards, this is a plain graph, not a
-hypergraph: choose 50 vertices maximising induced edges. That is the
-densest-k-subgraph problem (NP-hard, no PTAS known), but the instance is small
-enough for strong heuristics: greedy peeling from the top-degree cards,
-then local search / simulated annealing over swap moves with incremental
-score updates, restarted many times. That runs in minutes on CPU; the
-quietbox is more than enough. Since the graph is dominated by a few hub cards
-(untappers, token doublers, damage/drain enablers) the interesting question is
-which hubs to *drop* to make room for their partners, which is exactly what
-swap-based local search explores.
+hypergraph: choose 50 vertices maximising induced edges — densest-k-subgraph
+(NP-hard, no PTAS known). Three backends share one objective:
+
+```
+python -m spellbook_graph search --backend cpu --seconds 120           # per-core tabu search (NumPy)
+python -m spellbook_graph search --backend numpy --population 256      # population search, CPU reference
+python -m spellbook_graph search --backend tt --devices 4 --population 65536 --seconds 1200
+```
+
+Common flags: `--commander "Kenrith, the Returned King"` (default; use `none`
+for no commander), `-k 50`, `--out data/deck`. The result is written to
+`deck.json` (cards, per-card combo counts, the combo list, search history) and
+`deck.txt` (a plain decklist) every time the incumbent improves, so an
+interrupted run still leaves its best deck behind.
+
+### Commander handling
+
+The commander sits in the command zone, not in the 50 slots, so its combos are
+free: each card carries a `bonus` = number of combos it has with the commander,
+and the objective is induced edges + bonus of the chosen cards. Combos that
+need a *different* card to be the commander are dropped. Kenrith is five
+colours, so no identity filter is applied.
+
+### CPU backend (`search.py`)
+
+GRASP construction + best-swap tabu search + kicks, restarted for the time
+budget, one process per core. O(k·n) per iteration.
+
+### Population backend (`population.py`, `tt_search.py`)
+
+A population of P decks takes one swap per *generation*, with the whole
+neighbourhood evaluated by matmul: `C = X @ A` gives every deck's combo count
+for every card; the best add is chosen with exact `max` reductions and random
+tie-breaking, the best drop given that add uses a second one-hot matmul for
+the row `A[b*, :]`. Per generation O(P·n²) flops in two matmuls plus O(P·n)
+elementwise. `population.py` is the NumPy reference; `tt_search.py` runs the
+identical step with ttnn on one Blackhole or a 1×N mesh and is checked
+bit-for-bit against the reference. Progress is printed once per epoch.
+
+Running the TT backend needs a tt-metal build with `ttnn` and torch:
+
+```
+export TT_METAL_HOME=/home/ttuser/sjameel/tt-metal      # read-only use of an existing build
+export PYTHONPATH=$PWD:$TT_METAL_HOME/ttnn:$TT_METAL_HOME
+$TT_METAL_HOME/python_env/bin/python -m spellbook_graph search --backend tt ...
+```
+
+Measured on the quietbox (4 × Blackhole): ~25 ms per generation up to
+P ≈ 16k per device, 2.3M swaps/s at P = 65,536 on four cards, ~1.5–2M
+end to end including host bookkeeping. Details, numerical-exactness findings
+and the bugs met along the way are in `development-log.md`.
+
+### Result
+
+All three backends converge on **243 unique two-card infinite combos** among
+50 cards (none of them with Kenrith himself) from independent random starts,
+and a MILP (HiGHS via `scipy.optimize.milp`, `scratchpad/milp_bound.py` in
+the dev log) proves 243 optimal in about 5 seconds — the instance is sparse
+enough that the LP relaxation is tight. The optimum is not unique (two decks
+differing in one card both score 243). Decks: `data/deck_tt/deck.txt`,
+`data/deck_milp/deck.txt`.

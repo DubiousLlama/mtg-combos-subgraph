@@ -51,7 +51,7 @@ class FilterConfig:
     include_spoilers: bool = False
     allow_near_infinite: bool = False
     require_standalone_feature: bool = False
-    card_count: int = 2
+    card_count: int = 2  # 0 = any number of cards (hypergraph build)
 
     @classmethod
     def from_args(cls, args: Any) -> "FilterConfig":
@@ -128,6 +128,18 @@ class AcceptedVariant:
     infinite_features: list[str]
     all_features: list[str] = field(default_factory=list)
     popularity: int | None = None
+    notable_prerequisites: str = ""
+    easy_prerequisites: str = ""
+
+    @property
+    def battlefield_or_hand(self) -> bool:
+        """Every card starts on the battlefield or in hand (no graveyard / exile / library / command-zone setup)."""
+        return all(set(c.zone_locations) <= {"B", "H"} for c in self.cards)
+
+    @property
+    def clean(self) -> bool:
+        """No notable prerequisites and ordinary starting zones: the two cards are all you need."""
+        return not self.notable_prerequisites and self.battlefield_or_hand
 
     @property
     def commander_required(self) -> tuple[str, ...]:
@@ -147,7 +159,9 @@ def classify_variant(variant: dict, config: FilterConfig = FilterConfig()) -> tu
     if variant.get("requires"):
         return VariantClass.NEEDS_TEMPLATE, None
     uses = variant.get("uses") or []
-    if len(uses) != config.card_count:
+    if len(uses) != config.card_count and config.card_count > 0:
+        return VariantClass.WRONG_CARD_COUNT, None
+    if not uses:
         return VariantClass.WRONG_CARD_COUNT, None
     cards = [CardUse.from_json(u) for u in uses]
     if any(c.quantity != 1 for c in cards) or len({c.oracle_id for c in cards}) != len(cards):
@@ -167,6 +181,8 @@ def classify_variant(variant: dict, config: FilterConfig = FilterConfig()) -> tu
         infinite_features=infinite,
         all_features=[f["name"] for f in features],
         popularity=variant.get("popularity"),
+        notable_prerequisites=str(_get(variant, "notablePrerequisites", "notable_prerequisites", default="") or "").strip(),
+        easy_prerequisites=str(_get(variant, "easyPrerequisites", "easy_prerequisites", default="") or "").strip(),
     )
     return VariantClass.ACCEPTED, accepted
 
