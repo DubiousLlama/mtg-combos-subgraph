@@ -390,3 +390,53 @@ Per-variant prerequisite text and zones are now stored on each edge in
 All eight are MILP-certified in ≤ 0.8 s. The artifact dropdown is grouped by
 prerequisite policy; the summary table on the page is generated from the same
 instances.
+
+## 2026-09-04 — combos of any size (hypergraph), unrestricted pool, 50 cards
+
+User: "infinite combos of any size, unrestricted pool (any infinite, any
+prerequisite), 50 cards. You'll probably need to go sparse." Goal stated
+afterwards: a program that searches for the maximum density of combos
+extremely efficiently on the tt-quietbox.
+
+Data: 93,934 unique card sets (2: 2,774; 3: 42,058; 4: 41,502; 5: 7,565;
+6–10: 35) over 6,515 cards; 335,789 incidences. Hubs: Ashnod's Altar 5,713
+combos, Phyrexian Altar 4,794, Pitiless Plunderer 2,919. With Kenrith in the
+command zone his 346 combos shrink by one card; 1,097 combos needing another
+commander are dropped. Builder: `hypergraph.py` (`build --card-count 0`).
+
+MILP: not run, on purpose (user: skip if it won't work). The LP relaxation
+of "y_e ≤ x_v for all v in e" with hubs in thousands of combos is hopeless.
+
+CPU tabu (`hyper.py`): sparse incremental swap deltas,
+delta(drop a, add b) = gain[b] − loss[a] − corr[a, b], verified against full
+rescoring; ~5.6 ms per best-swap iteration in NumPy (k × n neighbourhood plus
+bincounts over the incidence list). 28 workers × 300 s: **1,745** (1,570
+three-card, 174 four-card, 1 two-card; Sun Titan / Karmic Guide / Fiend
+Hunter / Saffi cluster) with half the workers stuck at 1,692. Both basins are
+reached within seconds and never left; the landscape is rugged.
+
+Tensor formulation ("go sparse"): the dense `X @ H` (P × n × E) would be
+~1.25 TFLOP per matmul at P = 1024 and wastes 99.95 % zeros. Instead
+(`hyperpop.py`, `tt_hyper.py`): incidence space. Every combo owns r slots,
+grouped by card into 32-aligned ranges; state cnt (I × P) = deck cards in the
+combo minus (r − 1), so near-complete == 0 and complete == 1. Adding card b
+gathers row b of the (n × I) incidence table with `ttnn.embedding`, tilizes,
+transposes and adds; "combos completed by v" is a tile-row sum over 32 slots
+(exact in bf16) followed by a 0/1 matmul (n × chunks) with fp32 accumulation.
+Selection over values > 256 uses five exact max reductions (value // 256,
+value % 256, noise, index hi, index lo). Everything tiled (row-major
+elementwise is 3× slower). Bit-for-bit exact against the NumPy reference with
+host-supplied noise at P = 64 … 4096. Eager: 72 ms/generation at P = 1024,
+237 ms at P = 4096 on one Blackhole (14–17k swaps/s); ~12 passes over the
+slot tensor plus ~45 dispatch-bound small ops.
+
+Trace replay (user: "it should trace and replay where appropriate"): all state
+updated in place via `output_tensor=`, a block of 4 generations captured with
+`begin_trace_capture` and replayed; replay equals eager execution exactly, and
+`ttnn.rand` inside the trace is de-correlated with an on-device Weyl salt.
+14.2 ms/generation at P = 256 (18k swaps/s on one card) — the dispatch cost is
+gone. Not yet run at scale or on the mesh; see HANDOFF.md.
+
+Device findings: `embedding(layout=TILE)` wrong beyond 512 KB rows; `sum` on
+bf16 rounds its output (1,023 → 1,024); `reshape` to a 4-D tile view is a real
+copy; capture does not execute. Full list in HANDOFF.md.

@@ -94,13 +94,18 @@ class SlotLayout:
             S[v, self.card_start[v] // 32: self.card_start[v + 1] // 32] = 1
         return S
 
+    def _incidence_csr(self):
+        if getattr(self, "_inc", None) is None:
+            from scipy.sparse import csr_matrix
+            rows = np.concatenate([np.full(len(c), e) for e, c in enumerate(self.e_cards)])
+            cols = np.concatenate(self.e_cards)
+            self._inc = csr_matrix((np.ones(len(rows), dtype=np.float32), (rows, cols)), shape=(self.E_all, self.n))
+        return self._inc
+
     def counts(self, X: np.ndarray) -> np.ndarray:
         """cnt (I x P) for decks X (n x P): counts minus (r-1), PAD_CNT on padding slots."""
-        P = X.shape[1]
-        cnt = np.zeros((self.E_all, P), dtype=np.float32)
-        for e, cards in enumerate(self.e_cards):
-            cnt[e] = X[cards].sum(axis=0)
-        out = np.full((self.I, P), PAD_CNT, dtype=np.float32)
+        cnt = np.asarray(self._incidence_csr() @ X, dtype=np.float32)
+        out = np.full((self.I, X.shape[1]), PAD_CNT, dtype=np.float32)
         real = self.slot_edge >= 0
         out[real] = cnt[self.slot_edge[real]] + self.offset[real][:, None]
         return out
