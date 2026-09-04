@@ -1,0 +1,812 @@
+
+Search in video
+0:00
+If you've been playing Magic for any amount of time, you probably know what an infinite combo is, where two or more
+0:06
+cards combine to create a loop that can be repeated any number of times. Combos
+0:12
+are without a doubt one of the most powerful things you can do in Commander. But here's a bit of a wild question.
+0:18
+Just how many combos is it possible to fit in a single deck? Is it 25 combos,
+0:25
+50 combos, 100 combos? I mean, there's only a 100
+0:30
+cards in a commander deck, right? Well, today we're going to find out because I'm challenging myself to build a
+0:37
+commander deck that has more [music] infinite combos than the dollars it costs by Welcome to Commander Challenge.
+0:45
+I'm Gage. Let's get started. Gage from the future here. I'm about ready to do an ad read, but I just want to tell you,
+0:52
+you're not going to believe how many combos I end up fitting in this deck. Actually, you might believe because you
+0:58
+probably saw the number in the thumbnail or the title. And I just want you to note that that number is totally real.
+1:03
+Anyways, [music] I want to thank Pro Tech Sleeves for working with me on this video. Honestly, guys, I think these are
+1:10
+the best sleeves for the best price you can get anywhere. They come in a ton of
+1:16
+amazing colors. They are incredibly durable and out of the box, I think they have the best shuffle feel of any sleeve
+1:23
+I've ever tried. And if you want to try them out for yourself and support this channel while you're at it, use that
+1:28
+link in the description and use code commander challenge, one word, for a 10%
+1:34
+discount. Before I jump in to me actually trying to build this deck, let's lay down some ground rules for
+1:39
+this challenge. My goal is to create a powerful bracket 4 deck that someone
+1:45
+could go out and buy for the same price as a cheap precon all the while keeping
+1:50
+in the challenge parameters of building a deck with more combos than dollars.
+1:55
+Truthfully, I don't even know if this is possible given the overall budget constraints. The second rule, which is a
+2:01
+little bit of a derivative of the first, is that the combos in this deck actually need to win the game. They're not going
+2:08
+to be infinite loops that do nothing or forever repeating infinites that result in a draw. It's going to be just me
+2:14
+building this deck. I'm not going to use any guides or any resources other than card search engines. So, I'm going to
+2:19
+have to come up with a strategy to maybe pull this off. First, let's figure out what the actual budget is I have to work
+2:26
+with. I just Googled cheap precons. And as you can see, these starter precons
+2:31
+are like $25 to $30. and these cheap normal precons are like
+2:37
+$30 to $35. So, I'm going to shoot for a deck that costs anywhere between $25 to
+2:43
+$35. Next, we need to talk about a plan to address our overall challenge to
+2:49
+build a deck with more combos than the dollars it costs to buy. And to do that, I think we first need to take a deep
+2:55
+dive into infinite combos. These two cards, blood pet and enduring renewal,
+3:00
+make up the first [music] infinite combo I ever successfully cast in a game of
+3:06
+commander. Blood pet reads, "Sacrifice blood pet, add black to your mana pool." Enduring renewal has a lot of text on
+3:13
+it, but the important bit is this last section. Whenever a creature is put into your graveyard from play, return it to
+3:20
+your hand. So, if you had both these cards out on the battlefield, you could activate Blood Pet's ability. Blood pet
+3:26
+would die and you'd add one black to your mana pool. When blood pet hits the graveyard, enduring renewal will trigger
+3:32
+and return blood pet to your hand. You could then use that one black mana you
+3:37
+have floating to cast blood pet. This is an infinite combo because you can repeat
+3:42
+this loop any number of times, generating infinite enters triggers, infinite dies triggers, infinite cast
+3:49
+triggers, and infinite leaves the graveyard triggers. You could then combine those triggers with any number
+3:55
+of cards to kill your opponents or win the game. [music] The big problem though is that even though neither of these
+4:00
+cards are played very much, and neither is very expensive in the grand scheme of things, if I was to buy the cheapest
+4:07
+version of both these cards, it would cost me a grand total of around $25.
+4:12
+And to have a deck that has more combos than dollars, I need my average infinite to literally cost pennies. Because keep
+4:20
+in mind, I have to fill this deck up with card draw, ramp, and interaction, and that will take a sizable portion of
+4:26
+my budget. I also can't go out and find all the cheapest combos possible because they wouldn't have enough synergy and
+4:32
+overlap to make this deck actually good. And honestly, I don't even know if those
+4:37
+would provide enough combos to overcome that combotodoll ratio. I think my only
+4:44
+real option is to figure out a spiderwebing network of very cheap cards
+4:49
+that don't only go [music] infinite with one or two other cards, but go infinite with many cards in the [music] deck. But
+4:56
+building the spiderwebing network isn't even going to be our only big issue we're going to run up against [music] in
+5:02
+this build. We're also going to face the card advantage issue. The thing about combos is you have to find the exact
+5:08
+right cards to win the game. [music] And to do that, you either have to dig very deep into your deck to find the perfect
+5:16
+cards or to kind of cheat that system and use tutors to find those cards
+5:22
+without [music] actually digging that deep. But the big problem here is that we don't have the
+5:27
+budget for really good card advantage or really good tutors. Let's take a look at Esper Sentinel as an example. As of
+5:33
+publishing this video, the cheapest version out there costs [music] over $55.
+5:39
+And don't get me wrong, Esper Central is a good card, but not a $55 card. I got
+5:45
+to I got to sleeve this bad boy up. My gosh. The reason it's [music] so
+5:50
+expensive is that there's such high demand for it. Esperent doesn't cater to a specific strategy, and it's very good
+5:57
+and very cheap. So, every single deck that has access to white wants to run it. So, how am I going to dig deep
+6:04
+enough into my deck [music] to find my combos and win the game? I do have some ideas, but they're going to be very
+6:10
+dependent on what the [music] rest of the deck is going to look like and what colors we're in. Next is choosing the
+6:16
+right commander. As your commander is the most important card in your deck, this decision is always [music] going to be important. But in this situation, I
+6:23
+think it's going to be especially so. And I kind of see three different directions this decision could go. The
+6:29
+first is what I think is going to be the most likely, and that's finding a commander that will help us dig deep
+6:34
+[music] into our deck to find our infinite combos. Pinning our card advantage hopes and dreams onto our
+6:40
+commander should save us a bunch of money because it's a card we will always know we have access to, so we can skimp
+6:46
+out a little bit on the rest of our debt. [music] And the next option I see as a possibility is a commander that's
+6:51
+directly a part of the combo or an [music] activator of the combo. So, a commander like Kiki Jiki, Mirreaker, who
+6:59
+essentially goes infinite with any non-leendary creature that says untap target creature. The third option I see
+7:05
+is that if her commander was the payoff for going infinite, like if we had ilor
+7:11
+sadistic [music] pilgrim as our commander and we put that blood pet enduring renewal combo in the deck, we
+7:17
+could use elas to kill all our opponents with those infinite death triggers. out of these options. Right now, I'm really
+7:23
+kind of leaning towards the first, the card advantage engine as our commander,
+7:29
+but that might change depending on what combo I end up picking. As I've been recording the video so far and thinking
+7:35
+about the problem ahead of me, one combo has kind of stuck in my brain, and it's a combo that involves infinite [music]
+7:41
+tokens. Rosie Cotton of South Lane and Scurry Oak. This combo is probably in my head because I [music] accidentally put
+7:48
+it in one of my decks a few weeks ago. It's a pretty simple combo. Rosie cotton reads, "Whenever you create a token, put
+7:54
+a plus one plus1 counter on target creature [music] you control other than Rosie." And scurry reads, "Whenever one
+8:00
+or more plus one plus1 counters are put on scurio, you may create a 1-1 green
+8:05
+squirrel creature token." So, whenever you put a counter on scurry, you make a token. That token triggers Rosie, and
+8:12
+Rosie puts another counter on Scurio, and the loop continues. There's quite a few different versions of these combos.
+8:19
+And after some card searches, I found that most of them are in band, [music] white, blue, green. So, I'm going to
+8:24
+look up band commanders and see if we have any good fits. Okay, I just looked them up and all the good band commanders
+8:30
+are [music] really expensive for some reason. So, we might have to change our strategy a little bit, but I think I
+8:37
+came up with a really good idea while I was actually looking at them. A long while back, I had a Helga Skater Seer
+8:43
+deck. It's since been torn apart because it was a little too busted. each turn was like playing a half an hour of
+8:48
+solitire. Helga is a little expensive. The cheapest version I found was 363,
+8:54
+which would take up a pretty big portion of the budget. But I don't necessarily want to use Helga. I just want to use
+9:00
+some of the concepts I'd implemented into that deck because the deck was using cards like Aether Snipe and
+9:06
+Intruder Alarm to create infinite mana and infinite draw. Intruder Alarm is not cheap either. The cheapest version I've
+9:13
+se $3, but Aether Snipe on the other hand, and all the cards like it are all
+9:19
+super cheap, like sometimes singledigit cents cheap. All right, I'm going to do a bunch of card searches and see if I
+9:25
+can build a combo base around all these bouncers [music] and untappers and see if I can get that to work. So, this
+9:31
+Aether Snipe pipeline brought me down the line to this Abdel Adrian deck. Even
+9:36
+though AOS Knight probably wouldn't even be in the deck, this card is nice because he combos with a lot of different things. And since he has a
+9:42
+background, I can pair him with any color. However, I've ran into a bit of a problem. All the different combos that
+9:48
+involve Abdell require me have a whole bunch of pieces out on the battlefield. And because of that, I think this deck
+9:55
+is going to be too slow to compete at Racket 4, [music] at least with the budget I have available. So, I think I'm
+10:00
+going to go back to the drawing board here and maybe take a fresh look at this tomorrow and see if I can come up with anything new. All right, it's been a
+10:07
+couple days now and I'm still really struggling with this problem. The closest I've gotten is this Shalai and
+10:12
+Halar deck I've put together. Let's walk through the combo real quick. Basically, all it's going to use is Shalai and
+10:17
+Halar, which will be our commander. Essentially, any way to give Shalai and Halar lifelink. I was using white
+10:23
+instance like enter the Avatar State because they're super cheap. and then any of the many different versions of a
+10:29
+Johnny's pridemate. Basically, all we need to do is use enter the Avatar State to give Shalai and Halar lifelink. And
+10:36
+then if we attack with Shalai Halar, gain life, that will cause a Johnny's Pridemate to trigger, putting a plus one
+10:41
+plus1 counter on him, which will trigger Shalai and Har's ability. Whenever one or more plus one plus1 counters are put
+10:48
+on a creature you control, Shalai Halar deals that much damage to target opponents. So Shalai and Halar will ping
+10:54
+one of our opponents and since it has lifelink, we'll gain one more life. Another counter will be put on a Johnny's Pridemate, and Shalai Halar
+11:01
+will repeat the process. In theory, this will be a great combo for this challenge. There's a bunch of different
+11:06
+versions of Enter the Avatar State and a Johnny's Pridemate, and most of them are super cheap. The big problem, though, is
+11:14
+that Shalyan Halar is like $7, which would take up like 20 to 25% of her
+11:21
+total budget. This deck is a really great example of the biggest issue I'm running into. Stuff is just too
+11:27
+expensive. I can't seem to get the combos to outnumber the cost of the cards in the deck while sticking within
+11:34
+our $25 to $35 budget. The big issue is that this isn't a meme deck. I really
+11:41
+want it to work. This deck needs ways to dig deep into my deck, find those combos. It's also running ramp and
+11:48
+interaction and all that costs a lot of money. And since I'm putting all that other stuff in the deck, I'm really only
+11:56
+working with 25 to 30 cards to fit my actual combos in. Honestly, I don't even
+12:02
+know if this is possible at this point, but I'm keep trying and hopefully I'll come up with something soon. I am so
+12:09
+dumb. Yesterday I was at my LGS and I sat down for a game that was
+12:14
+somewhere in between the high end of Bracket 3 and the low end of Bracket 4.
+12:20
+So I pulled out one of my oldest most favorite decks, Ay Eternal Pilgrim. This
+12:26
+deck uses something I like to call soft combos, which is kind of like using half of an infinite combo to not actually go
+12:33
+infinite, but just gain a bunch of value. And that soft combo I use in the deck is basically this Sun Titan
+12:39
+Necrogen Communion loop. If Sun Titan is enchanted with Necrogen Communion and
+12:44
+Sun Titan dies, Necrogen Communion triggers returning Suntitan to the battlefield. Sun Titans enters ability
+12:51
+then triggers and I'm able to return Necrogen Communion to the battlefield and attach it to Sun Titan. My Ale deck
+12:58
+doesn't have any repeatable stack outlets, so it never actually goes infinite. But as soon as they add one to
+13:04
+the mix, let's say viscerous here, this becomes an infinite combo as I could repeatedly sack Suntitan. So I started
+13:11
+playing the game and I got that exact Sun Titan Necrogen Communion soft combo out. And I looked down at it and I
+13:18
+thought to myself, "Huh, I wonder how much those cards are." And the answer is
+13:24
+really cheap. Actually, there's actually a few other versions of this exact same
+13:30
+combo in the deck, and they all kind of intertwine and interact with each other,
+13:36
+which is exactly what I need. [music] So, I'm going to do some card searches and see if there's more of these because
+13:42
+there's not enough in my Ale deck to actually pull this off. So, I'm going to need a few more. So, I'm going to do
+13:47
+some more card searches and see how many I can find in total. A few moments later.
+13:53
+I I think this is going to work. I'm really pumped about that because I spent
+13:58
+days doing card searches. Literally days. So, my combo colors are in white
+14:04
+and black. And I think I want my commander to be [music] just white and black as well because that means my land
+14:09
+base can be cheaper. Okay, I'm going to start searching for our commander that's going to let us dig through our deck and
+14:15
+find [music] our combos. And the nice part about these combos is that part of it is based out of the graveyard. So
+14:22
+instead of drawing, we can just mill and then use recursion to get the right piece back [music] and start the loop.
+14:29
+Okay. Apparently there's only one white black legend that actually mills you cards or does something similar. And
+14:34
+that's Fria, Judge of Balor. And she's [music] five mana, so I think she might be a little too expensive for this deck.
+14:42
+So I'm going to have to go in a different direction. But I just want to say that the art on this card goes so
+14:48
+hard. I mean, I'm going to build this deck a different time just because of that. There's probably some partners or
+14:54
+background partners that also mill cards technically, but I don't think any of them would be good enough for what I
+15:00
+need. Means we have to do a [music] pivot. And I think that leaves me with two options. I can either have the
+15:05
+infinite payoff in the command zone or the infinite [music] activator in the command zone. For the payoff, I could
+15:12
+use a card like a loss, ilcore, sadistic pilgrim, which I think I already talked about in this video. But I think the
+15:18
+better option would be to put a sack outlet in the command zone because that
+15:23
+sacrifice outlet is a tool we can use to do other things that will benefit us and
+15:28
+drive value other than implement our combo. Here, I'm going to grab a card I can use as an example real quick to show
+15:35
+you what I mean. Had to take off my sweatshirt. I was getting too hot. But this is Stitcher Supplier. It reads,
+15:42
+"When Stitcher Supplier enters the battlefield or dies, mill three [music] cards." This is basically going to be an
+15:49
+auto include in the deck because getting six cards in the graveyard is super
+15:54
+busted for one mana. And cards like this are the exact reason why I think that
+15:59
+sacrifice outlet in the command zone will be better than the payoff version.
+16:05
+is because you can sacrifice cards like this to activate their death triggers and gain value. And especially in black,
+16:12
+there are a ton of really useful death triggers on commons and [music] uncommons, which means they're going to
+16:18
+be cheap. So, I'm hoping to leverage those death triggers as a big part of our card advantage and our recursion.
+16:25
+And the commander I found for this is just perfect. I think he is Bartome Del
+16:31
+Precidio. I probably butchered that a little bit, but he reads, "Sacrifice another creature or artifact. Put a plus
+16:38
+one plus1 counter on Bartome. He's a repeatable sack outlet for creatures and artifacts, which is nice. And there's a
+16:45
+payoff for doing so. In this deck, he's going to get infinitely large. So, if we get a clean attack, he's going to kill
+16:51
+someone with commander damage. But more important than that is he's only two
+16:58
+mana. In a highowered bracket four deck like we're trying to build, highly
+17:03
+efficient [music] costed cards are going to be a godsend. And now with our commander picked out, let's move on to
+17:10
+our themed cards. These will be the cards in our deck that make up our plan to win the game. So they'll include our
+17:17
+combos, but a few other things as well. Normally, I just start by making a big pile of all the cards I think will be
+17:23
+good in the deck. But in this case, we already know what the core of our themed cards are going to look like. It's going
+17:29
+to be all the different variations of that Sun Titan Necrogen Communion combo.
+17:34
+But I need to figure out exactly which ones I'm going to be putting in the deck. [music] So, I'm just going to
+17:40
+start with some card searches to find all the different variations of our infinite. I think I figured out the
+17:45
+exact versions of the combos I want to put into the deck. Now, I'm going to just start searching through my
+17:50
+collection [music] for two different things. Recursion to bring cards back from our graveyard and payoffs [music]
+17:57
+for infinite leaves and infinite dies triggers. For my payoffs, I'm particularly looking for cards that are
+18:03
+cheap and cheap. Their mana cost is cheap and their cost is cheap. Ideally, under three mana and under 30 cents. As
+18:10
+for the recursion, so cards that take creatures from my graveyard and put them onto the battlefield. I'm particularly
+18:16
+looking for ones that I can cast from my graveyard. And I'm going to tell you why I'm doing that in the next section when
+18:22
+we get to card advantage. And don't worry, by the end of this video, I'm going to walk you through every single
+18:28
+card I'm [music] putting in this deck. So, while I was scouring through all my
+18:33
+common and uncommon black cards, I came across two cards [music] that really inspired me. and I think they'll be the
+18:40
+basis for my card advantage engine. They are Undead Butler and Unseal the
+18:46
+Necropolis. Undead Butler reads, "When Undead Butler enters, mill three cards.
+18:52
+And when Undead Butler dies, you may exile it. When you do, return target creature from your graveyard to your
+18:59
+hand. This card is going to be perfect in this [music] deck. When he enters, he mills." So, in a graveyard deck like
+19:04
+we're building, that's basically card advantage. And he has that death trigger that returns a creature from our
+19:10
+graveyard to our hand which has fantastic synergy with our commander
+19:15
+since our commander is a sacrifice outlet. And then unsealed the necropolis reads each player mills three cards.
+19:22
+Then you may return up to two creature cards from your graveyard to your [music] hand. I know for a fact there's
+19:27
+a bunch of different versions of cards just like this. And it does exactly what we need. It fills up our graveyard and
+19:34
+provides a little bit of card advantage on top of that. So, I'm going to scour through my bulk and try and find as many
+19:40
+different versions of both these cards as I can. We'll first run through our permanent [music] base card advantage
+19:46
+and then our instance and sorceries. Gnawing vermin. When it ETBs, it mills us two cards. And then when it dies, it
+19:53
+gives a creature we don't control minus one minus one, which might not sound like a lot, but it actually has the ability to pick off a lot of the little
+19:59
+one drops that run around high-powered commander like birds of paradise or
+20:04
+esper Sentinel. Stitcher supplier. This card will put six cards into our graveyard or seven if you clude itself.
+20:11
+I have little doubt it will be one of the best cards in [music] this deck. Next is Undead Butler. We talked about
+20:16
+this card earlier. It has that mill ETB and then when it dies, it returns a creature to our hand from our graveyard.
+20:23
+It's going to pair so well with our commander, our combos, and the rest of our deck. Next is Throne of the Grim
+20:29
+Captain. It has a backside, which we will never use in this deck because we don't have the requirements to flip it,
+20:35
+but its front side is a really good mill engine. Two cards a turn is a lot, especially for two mana. Then we have
+20:42
+Crow of Dark Tidings. This is basically dollar [music] store stitcher supplier which is ironic because the mana cost is
+20:49
+more but I think it will be solid and it's a flyer which is always good to have as a blocker. And then we have parramsia colonex colonics. This is
+20:56
+basically a worse version of undead butler because it puts a card on top of our library instead of our hand. And
+21:02
+then onto our instance we have another chance. You may mill two cards then return up to two creature cards from
+21:09
+your graveyard to your hand. The reason cards like this are going to be so great in this deck is not only can we use them
+21:15
+to get our combo pieces out of our graveyard, but we can also use them to get our other creatures that mill and
+21:21
+our creaturebased interaction out of our graveyard. Then we have corpse churn. So similar instant speed mill three cards.
+21:27
+You may return a creature card from your graveyard to your hand. Then unseal the necropolis. Very similar. Each player
+21:34
+mills three cards then you return up to two creature cards from your graveyard to your hand. Then we have funeral rights. draw two, lose two, mill two.
+21:42
+This deck is going to be so fast, we're never going to care about that life loss. And it does everything else we
+21:47
+want to do. Dire sight does the exact same thing but better because it surveills two, then draws two instead of
+21:54
+just milling. Corpse Augur, which is actually one of the more expensive mana costed cards we're going to have in this
+21:59
+deck. I think it's going to be really good. We're going to be filling up our graveyard so hard and fast that I think
+22:04
+this will draw us a lot of cards. And then lastly, we're going to be running some tutors. The first of which is Demonic Bargain. In this deck, we're
+22:11
+going to have so many combos that the odds of exiling all our combo pieces in those 13 cards is basically zero. And I
+22:18
+found this card for as little as 16 cents. So, I think it's a great include. And then we have Final Parting, which I
+22:23
+know is five mana, which is a lot for a tutor, but it's so good in this deck because it puts one card in the
+22:29
+graveyard and one into our hand. And the combos we're running work best when one parts in the graveyard and one parts in
+22:36
+our hand. And then lastly, we're going to be running Savine's Reclamation. I know this is technically a recursion
+22:41
+spell, but this card is rarely going to be grabbing our combo pieces. Instead, it's going to be grabbing our creatures
+22:46
+that help us mill or our interaction. So, I included it in this section instead. For the ramp in this deck, I'm
+22:52
+not going to do anything too special. I'm just going to find the cheapest ramp I have in the right colors and put it in the deck. I'm going to focus on two mana
+22:59
+ramp. Most of this deck is really low to the ground. We have one seven drop and two six drops. And [music] that's it for
+23:06
+our high mana value cards. We have prismatic lens, two mana, ds for one colorless. Mind stone, not the mind
+23:14
+stone, just mind stone. Talisman of hierarchy. It's great. Fixes our colors and only two mana. Wayfair's bobble will
+23:20
+marginally thin out our deck and give us a higher chance of hitting our combo pieces. And then we have Arcane Signate,
+23:26
+of course. Color fixing, one of the best rocks there is still. Then Orzoff Signet, another two mana fixer. And then
+23:32
+we have Noble's Purse. I love this card. Even though it enters tapped, I find it super nice because you can store up
+23:38
+multiple mana. If you get it down on turn two and you don't miss any land drops, on turn four, you can have six
+23:44
+mana available. And at the power level we're building at, six mana should be enough to win the game a lot of the
+23:50
+time. Then we have Charcoal Diamond. This is in here because it's two mana and really cheap. That's pretty much it.
+23:55
+[music] Milicanin. This is a manadork that mills a card every time it taps. And in
+24:00
+[music] this deck where we're compounding all these little different ways to mill one card here, two cards there, three cards there. We're going to
+24:06
+rapidly fill up our graveyard. And this card [music] will help us do that. Then we have warm triad, which will help us
+24:12
+do the same thing. And it also color fixes and turns [music] into a big body once we have eight things in our
+24:17
+graveyard. Never underestimate a 55 flyer. Interaction is going to be really important in this deck because we're
+24:24
+competing at Racket 4, which means we're going to need to be able to actually stop our opponents from winning [music]
+24:30
+the game early. And it also means we're going to have to be able to stop our opponents from stopping us from winning
+24:38
+as well. So, when I'm picking out my interaction, I'm going to prioritize [music] three things. The first and the
+24:44
+most important are pieces of interaction that can deal with this deck's greatest weakness, which is going to be graveyard
+24:51
+hate. The most popular graveyard hate tends to come on enchantments, artifacts, and lands. So, we really
+24:57
+[music] have to make sure we're running interaction that can deal with those permanent types. The second thing I'm going to prioritize is [music] actually
+25:04
+permanentbased interaction. Since this deck is mainly going to be focused on putting things into our graveyard
+25:10
+instead of our hand, we're going to find pieces of interaction that can be recurred from our graveyard with [music] either our combo pieces, all of which
+25:16
+bring some type of hermit back from our graveyard or with our more standard recursion and our little pieces like
+25:23
+undead butler. And the third thing I'm going to prioritize is actually going to be a lot of fun. I'm going to include
+25:28
+some pieces of interaction that don't only function as interaction, but also
+25:33
+can be a part of our infinite combos. So, some of these are like pure jank,
+25:38
+but I think a lot of them [music] will work pretty well in the deck, actually. First up is Bound and Gold. This is a
+25:44
+super bad card, but it's going to be really useful in this deck because it's a three-man aura. We have a lot of ways
+25:50
+to recur it and it's going to be really useful in protecting our deck because we can use it on basically anything that
+25:56
+[music] taps to affect our graveyard. So, Ghost Vacuum or Scavenger's Ground,
+26:02
+a whole bunch of things. [music] Then we have Intercessor's Arrest, which is the exact same card just with a different
+26:08
+name. Then we have seal from existence which is the classic O-ring effect except it has ward three and we can use
+26:14
+it to hit any of the things that were really going to screw up our plan like a dely void walker or a rest in peace.
+26:21
+Next is generous gift which is the classic white catchall removal spell. Destroy target permanent. Its controller
+26:27
+creates a 33 green elephant creature token. The only board wipe we're going to be running in this deck is Dusk
+26:33
+because it's super cheap and it's going to be really good in the deck because it destroys all creatures with power three
+26:38
+or greater, which many of our important pieces will dodge. Then it's Dawn Side, which can only be cast from our
+26:44
+graveyard will also be pretty useful. It reads, "Return all creature cards with power two or less from your graveyard to
+26:51
+your hand." This is definitely a break glass in case of emergency, but lots of times I think this might return three to
+26:58
+four creatures to our hand since so many of the creatures we're putting in this deck are so small. Then we have Leonin
+27:04
+Relic Order, which exiles target artifact or enchantment [music] until this card leaves the battlefield. This
+27:10
+isn't the best removal, but since it's creature based, we're going to have a lot of ways to get it back from our graveyard to our hand or directly onto
+27:17
+the battlefield, which will be [music] really nice. And then lastly, we have disenchant, which I'm running because it's like 12 cents and that's pretty
+27:24
+much it. All right, you might notice that this isn't a lot of interaction, and that's because we're actually running more, but I'm going to show it
+27:30
+to you in our theme section because the rest of our interaction actually combos
+27:35
+with our [music] infinence. We're actually running quite a few utility lands in this deck, and I'm going to break them into three categories so we
+27:41
+can go through them really quick. First, we have our color fixing lands, which the only really unique ones are my mirrored landscape and ash barons, which
+27:48
+can be useful in this deck because they go into our graveyard after we use them. And then we actually have a bunch of ways to recur them to the battlefield,
+27:54
+which is basically ramp. And then our next category of lands are lands that help us mill. First, we have conduit
+28:00
+pylons, which is a colorless land that enters untapped and surveills when it enters. And we have three different
+28:06
+versions of this in the deck. And then we have Mary Posa military base which enters tapped but when it enters it
+28:12
+gives us two rad counters which I believe will mill us after our next draw step. And then lastly we have Dakmore
+28:18
+Salvage which has that dredge on it which means instead of drawing we can mill two and draw this card instead from
+28:24
+our graveyard. Lastly we have a few utility lands. Memorial to Folly which can return a creature from our graveyard
+28:31
+to our hand. Rogu's Passage, which might end up being super relevant in this deck in some games because we can make our
+28:37
+commander so giant. And lastly, we have Bjukabog, which exiles a target graveyard. I can't tell you how many
+28:44
+times this card has saved my butt. So, if we add up our commander, our lands,
+28:50
+our card advantage, our ramp, and our interaction, we end up with 71 cards.
+28:58
+That means our themed cards must equal 29. I think we're just over. So, I'm
+29:04
+going to cut a few and then I'm going to sleeve these guys up. And of course, we're going to use friend of the show, Protek. And I think I'm going to try out
+29:11
+their glacier white color as one of the most common issues I have with sleeve brands is that their back is slightly
+29:17
+transparent, which means I can see if a card is dualsided or not. And this problem pops up the most with white
+29:22
+sleeves. So, I thought we'd test these out and see how opaque they are. I'm just going to shine my phone flashlight through a Magic card here so you can see
+29:29
+what it looks like. And then we do the same thing with the same card, but just sleeved up. And as you can see, very
+29:34
+little light is actually getting through. This is actually really impressive for a white sleeve. Normally,
+29:40
+they're the most transparent, and I wouldn't expect them to be this opaque. Anyways, let's continue sleeving up and
+29:45
+give this [music] deck its first shuffle. Gosh, I'm still blown away on how good the shuffle is on these
+29:51
+sleeves. I really do think that these are the best sleeves for the best price you can get anywhere. And if you want to
+29:56
+try them out for yourselves and support this channel while you're at it, click that link in the description and use the code commander challenge, one word, for
+30:04
+a discount. [music] All right, now I'm going to jump into gold fishing. And I want to be paying attention to more than just how the deck plays here. Of course,
+30:10
+I'm still looking to see if I'm getting all the cards that I need when I need them. But I'm also looking for something
+30:15
+else since this is going to be a bracket 4 deck, and that's when this deck is winning the game. From the top of
+30:20
+bracket 3 to the very high end of bracket 4 is a very wide range of power.
+30:27
+And this might be a bit controversial, but this graph is kind of how I think about it. At the bottom here, we have
+30:33
+the top [music] end of bracket three. These decks can occasionally present a win on turn six, but for the vast
+30:39
+majority of the time, they are trying to win or take an insurmountable advantage on their turn seven. This does not mean
+30:46
+that high bracket theory games are expected to end on turn seven. However, it just means on turn seven, players are
+30:53
+doing things that could win the game if they are not [music] stopped. And just above this, we have low bracket 4. And
+31:00
+the big difference here is that the game is marginally sped up. At the very bottom of bracket four, I expect decks
+31:06
+to win, usually on turn six [music] and occasionally on turn seven. And in addition to that, they're normally chock
+31:12
+full of powerful spells and pieces that make them more resilient and more explosive. But as we move up further
+31:19
+into bracket 4, [music] we expect winds to come even faster and for setup time
+31:24
+to come faster. But once you're in the middle of bracket four, you're regularly expecting decks to be able to win on
+31:31
+turn five and also to be able to fly out of the gates with only three to four [music] turns of setup. And then once
+31:37
+you're reaching the top of 4, all bets are off. Decks at this stage are highly
+31:43
+interactive and explosive. These decks need to be built to win on the drop of a hat and also have to be able to stop
+31:50
+your opponents from winning on any turn. So, I'm going to go ahead and continue to goldfish this deck 10 times. And then
+31:56
+I'm going to chart when this deck is presenting wins so we can better estimate exactly where in bracket 4 this
+32:03
+deck is going to fall. This [music] deck ended up winning on turn five 50% of the time and turn six 40% of the time, which
+32:10
+means I would place this deck well within the [music] middle of bracket 4. But I think even for like $50 more that
+32:16
+this deck could be upgraded [music] into the higher end of Bracket 4 and become a lot more consistent in general. But
+32:23
+anyways, I really do think I achieved my goal of building a good bracket for deck
+32:30
+for the same price as a cheap precon. But now, I'm sure the moment you've all
+32:36
+been waiting for are themed cards, where we're going to find out exactly how many
+32:42
+combos are in this deck. Okay, I have these themed cards broken up into a few sections. First, we have our commander
+32:49
+and our backup commander. And then we have the two different sections of our loop pieces. Then our finishers, our
+32:56
+pieces that will actually kill our opponents, and then lastly, our recursion pieces. Our commander is
+33:02
+obviously Bartolem. We've already gone over him. But our backup commander, which I'm including in case Bartome gets
+33:08
+turned into an elk or something, is Deir House guard. He's four mana with fear
+33:14
+and he is a sacrifice outlet for creatures. But the biggest reason I picked him as the backup commander is
+33:20
+this transmute [music] ability, which is a super old ability that you never see anymore. But essentially, you can pay
+33:27
+three, discard this card from your hand, and then tutor for a card with the same
+33:32
+mana value. This ability could get us card draw, recursion, or even a part of
+33:38
+one of our combos. And speaking of recursion, let's go over that next. And I actually think this part of the deck
+33:43
+might be the part that could be most easily upgraded if someone was willing to spend a few extra dollars. First up,
+33:49
+we have Body Snatcher, which I really love in this deck. It reads, "When Body Snatcher enters the battlefield, exile
+33:56
+it unless you discard a creature card." And then its second ability reads, "When Body Snatcher dies, exile it and return
+34:03
+target creature card from your graveyard to the battlefield." Notably, these are both triggered abilities. So, if we have
+34:10
+our commander out, our sacrifice outlet, we can pull off some shenanigans. If we don't have a creature to discard, we can
+34:17
+sacrifice body snatcher before that first ability resolves. if we still want to trigger that second ability. [music]
+34:24
+But that first ability actually can be really useful for us sometimes because if we only have four mana, we can play
+34:29
+body snatcher, discard a card that is greater than four mana that might be part of one of our combos, then
+34:35
+sacrifice body snatcher to recur that higher mana cost card. During my goldfishing, I was actually able to use
+34:42
+this card to win the game multiple times ahead of schedule. Next, we have Unbearial Rights, which is definitely a
+34:49
+piece of jank, but it's pretty good in the deck. It just reads, "Return target creature card from your graveyard to the
+34:55
+battlefield." But what's really useful about it is that flashback cost. So, if this card gets mil, we can still cast it
+35:01
+from our graveyard. Then, we have Dread Return for four mana or turner creature card from your graveyard to the
+35:07
+battlefield. It also has a flashback cost of sacrificing three creatures. you know, that is going to be a little
+35:12
+difficult to get off in this deck, but it's a very cheap card and it's recursion, which is what I needed. Then
+35:18
+we have Valerbos Faithful, which is a one- mana card that says, "Pay four, sacrifice Valos Faithful. Return turret
+35:25
+creature card from your graveyard to the battlefield. Activate only as a sorcery." It's nice that this card's one
+35:31
+drop. I didn't have a lot of one drops in the deck, so I included this so we can get it down early. And it's
+35:37
+recurable, which is nice, but honestly, it' probably be one of my first cuts if I was revamping this reanimation
+35:44
+package. Next is Wake the Dead. And I think this is probably the best reanimation spell you can [music] hit in
+35:49
+this deck. It reads, "Cast a spell only during combat on an opponent's turn.
+35:54
+Return X-target creature cards from your graveyard to the battlefield. sacrifice
+35:59
+those creatures at the beginning of the next endst step. The reason why this card is so good in this deck is because
+36:05
+our combo goes off at instant speed. And often this card can grab both the creature part of the loop and the
+36:11
+finisher at the same time. [music] So we just cast it during another player's combat and win the game on the spot
+36:16
+before our creature sacrifice. Lastly, we have Infernal Offering, which is a nice little modal card. The first part
+36:23
+allows us to sacrifice something to draw two cards and does the same thing for an opponent. and the second part recurs a
+36:29
+creature and does the same thing for an opponent. While playing this card, I've often found you can just pick a player
+36:34
+with no creatures to sacrifice and another player with no creatures to recur.
+36:43
+Next, let's go through our finishers, which will be the cards that will actually win us the game once we have our loop established. Most of these
+36:50
+cards do the same thing. They read, "Whenever a creature dies, each opponent or target opponent loses one life." And
+36:56
+basically all I did was went through my collection and found the cheapest ones I had. And the nice part about this deck
+37:02
+is that basically in every single set there's a new version of one of these cards. So even if you're a new player,
+37:08
+you're likely to have a few of these. And if you don't have them, they're super easy to get [music] your hands on. We have Agent of the Iron Throne. Then
+37:15
+Ninja Teen, which does have that added upside of being able to upgrade this class to level three, which allows us to
+37:22
+sneak cast [music] cards from our graveyard. And then we have scavenger's talent, which is probably the most
+37:27
+unique of these and probably the most useful as well. At level two, it allows
+37:33
+us to mill our opponents out if we have the loop. But even before we have the loop, we can use that level two to mill
+37:39
+ourselves to dig deeper into our deck. Then we have Bastion of Remembrance, Zuapore Cutthroat, which is nice because
+37:46
+it's only two mana. And then [music] same thing with Marionette Apprentice. Okay, now as we move on to our loops,
+37:52
+I'm going to build a little pyramid here to help you visualize our complete combo network. [music] First, we need down
+37:58
+either our commander or our backup commander. And then we need any of our finishers. And then the two different
+38:04
+halves of our loop. Let's call this first half the Sun Titan cards, of which
+38:09
+we have seven. And I broke them down into groups for you. These first three cards, Sun Titan, Angel indemnity, and
+38:16
+Redemption Choir, all go infinite with every card on the other side of our loop. And then we have Shepherd of the
+38:22
+Cosmos, which completes the loop with all our two mana value cards on the other end. And then there's [music]
+38:27
+these last three cards, and they all complete the loop with any of the auras that we have on the other side of our
+38:34
+combo. We have Boone Weaver Giant, which is really great because it literally just tutors the aura we need out of our
+38:40
+deck or graveyard. Brotherhood Outcast, which is awesome because it's only three mana. And lastly, Denitha, Benalia's
+38:47
+Hope, which is also really good because it can just cheat the aura directly from our hand without making us pay the mana
+38:53
+cost for it. As for that other side of our combo, the first two I want to talk about are Were Fox, Bodyguard, and Fiend
+38:59
+Hunter. These cards only complete the loop with those first three cards we talked about, but they're really great
+39:04
+because they also serve as interaction we can use on our opponents. Then we have Gift of Immortality, Kaya's Ghost
+39:10
+Form, Minions Return, Necrogen Communion, Angelic Renewal, Changing Loyalty, and lastly, Fungal Fortitude.
+39:17
+All these cards more or less do the same thing as Necrogen Communion. They return
+39:23
+a [music] creature that just died to the battlefield and in the process get put into the graveyard. But at this point,
+39:29
+your burning question is obviously, how many different infinite combos does this
+39:35
+make in total? And the answer [music] is astounding. In this deck, there are 600
+39:42
+different lines you can make to set up an infinite combo and win the game. Obviously, there's no way I can walk you
+39:49
+through all 600 of those combos. So, let's just use one card as an example so
+39:55
+I can show you all the different lines that spiral off of it in this deck. Sun
+40:00
+Titan is included in 108 [music] unique combo lines. Sun Titan can form
+40:07
+the very base of our loop in nine different ways. Those nine loop bases
+40:12
+then [music] can be combined with six different payoffs. That creates 54
+40:18
+unique sets of cards. We then combine those 54 sets with our two sacrifice
+40:24
+outlets, our commander and our backup commander. In total, that creates a 108
+40:31
+unique gamewinning combos. And of course, Sun Titan isn't alone. Angel of indemnity also has 108 unique combos she
+40:39
+can be a part of. And the wild part is I could even include a lot more combos in the deck. For every additional sack
+40:46
+outlet I could put in the deck, it would create 300 more unique combo lines.
+40:52
+[music] And that brings us to the end of this video. The total cost of this deck ended up being [music] $27.94
+41:00
+as of publishing this video. and [music] the deck ended up containing 600
+41:06
+unique infinite combos. I want to thank you guys so much for all your support.
+41:11
+You guys are really making my dreams [music] come true. Just this month, I started fulltime on YouTube. So
+41:18
+hopefully that means more than one video a month for you guys. Hopefully. And
+41:24
+also let me know what you thought about this challenge style of video. Thanks. I
+41:30
+appreciate all the
