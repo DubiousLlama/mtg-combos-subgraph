@@ -19,7 +19,7 @@ of **any size** counted once per unique card set.
 | TT result | 1,745 from random starts in 44 generations (≈ 2 s device time); nothing above 1,745 in 8.6 M swaps |
 | README / dev log | updated (2026-09-05 entry has the throughput and time-to-1,745 tables and the assessment) |
 | `ttnn.rand` write-up for the devops team | `notes/ttnn-rand-for-scientific-compute.md` (+ `scripts/rand_probe.py`, `rand_analysis.py`) |
-| pushing | **not pushed** (no GitHub auth on the box; commits are local with `-c user.name=ttuser -c user.email=…`) |
+| pushing | pushed to `origin/claude/mtg-commander-combo-optimizer-cx4ukq` on 2026-09-05 (commit with `-c user.name=ttuser -c user.email=…`; no git identity is configured on the box) |
 
 ## Conclusions the user has been told
 
