@@ -233,7 +233,7 @@ eager). Reseeding rebuilds `cnt` on the device as one matmul
 | backend | best | time to first 1,745 from a random start |
 |---|---|---|
 | CPU tabu, 28 workers × 300 s | **1,745** (1 two-card, 1,570 three-card, 174 four-card); other attractor 1,692 | 0.7 s on the min-degree-16 pool in most seeds; some seeds stay at 1,692 |
-| TT population, 4 cards, P = 4,096, trace replay | 1,745 | generation 44 ≈ 1.9 s of device time, 36.6 s wall (≈ 20 s setup) |
+| TT population, 4 cards, trace replay | 1,745 | generation 44–48 in every run: 0.33 s of device time at P = 512, 1.9 s at P = 4,096; 14–26 s wall because of per-process setup |
 
 Decks: `results/any-size/cpu-tabu-1745.txt`, `cpu-tabu-1692.txt`,
 `data/deck_any_tt_run2/`. No backend has found anything above 1,745 and
@@ -244,7 +244,10 @@ attractors are reached by the first tabu descent. The device backend does
 ~41 µs per replica-generation) against ~14k/s for 28 CPU cores, but its
 move is weaker by design (best add, then best drop given the add, instead of
 the CPU's full pair scan), so it pays off only for searches that need
-millions of swaps. See the 2026-09-05 entry of `development-log.md`.
+millions of swaps. Verdict (2026-09-05, measured over three seeds per
+population size): the device search does not beat the CPU on this instance
+and is not worthwhile for it; tracing is not the reason (eager is 1.8×
+slower than trace replay). See `development-log.md`.
 
 Device findings that shaped this (details in `development-log.md` and
 `notes/`): `ttnn.embedding` with tile-layout output corrupts rows when the row

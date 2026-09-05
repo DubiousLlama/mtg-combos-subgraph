@@ -1,0 +1,51 @@
+== no-trace mesh P=4096
+[  41.0s] epoch   14  gens     280  swaps    1.15M    53.4k swaps/s  best  1745  (epoch best 1745, mean of replica bests
+[  42.5s] epoch   15  gens     300  swaps    1.23M    54.2k swaps/s  best  1745  (epoch best 1745, mean of replica bests
+[  44.1s] epoch   16  gens     320  swaps    1.31M    51.7k swaps/s  best  1745  (epoch best 1745, mean of replica bests
+[  45.6s] epoch   17  gens     340  swaps    1.39M    54.1k swaps/s  best  1745  (epoch best 1745, mean of replica bests
+== trace mesh P=512 seed=1
+[   7.6s] population 512 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards, 7
+[tt] first eager block of 4 generations (kernel compile) 4.7s, trace capture 0.3s
+[  15.7s] epoch   10  gens      44  swaps    0.02M    52.6k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1169.7, 1 replicas 
+[  16.5s] epoch   11  gens      48  swaps    0.02M     2.4k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1220.9, 4 replicas 
+== trace mesh P=512 seed=2
+[   7.5s] population 512 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards, 7
+[tt] first eager block of 4 generations (kernel compile) 4.6s, trace capture 0.3s
+[  14.3s] epoch   11  gens      48  swaps    0.02M     9.2k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1216.5, 1 replicas 
+[  14.4s] epoch   12  gens      52  swaps    0.03M    20.0k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1239.4, 6 replicas 
+== trace mesh P=512 seed=3
+[   7.5s] population 512 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards, 7
+[tt] first eager block of 4 generations (kernel compile) 4.6s, trace capture 0.3s
+[  14.1s] epoch   10  gens      44  swaps    0.02M    52.5k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1169.5, 2 replicas 
+[  14.4s] epoch   11  gens      48  swaps    0.02M     8.7k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1214.4, 4 replicas 
+== trace mesh P=1024 seed=1
+[   7.6s] population 1,024 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards,
+[tt] first eager block of 4 generations (kernel compile) 8.1s, trace capture 0.3s
+[  19.6s] epoch   10  gens      44  swaps    0.05M    59.8k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1177.7, 1 replicas 
+[  20.6s] epoch   11  gens      48  swaps    0.05M     4.5k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1230.2, 10 replicas
+== trace mesh P=1024 seed=2
+[   7.7s] population 1,024 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards,
+[tt] first eager block of 4 generations (kernel compile) 5.7s, trace capture 0.3s
+[  15.8s] epoch   10  gens      44  swaps    0.05M    58.3k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1176.7, 2 replicas 
+[  16.2s] epoch   11  gens      48  swaps    0.05M    13.8k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1231.8, 11 replicas
+== trace mesh P=1024 seed=3
+[   7.7s] population 1,024 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards,
+[tt] first eager block of 4 generations (kernel compile) 5.6s, trace capture 0.3s
+[  15.5s] epoch    8  gens      36  swaps    0.04M    59.6k swaps/s  best  1745  (epoch best 1745, mean of replica bests 945.6, 1 replicas a
+[  15.6s] epoch    9  gens      40  swaps    0.04M    72.6k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1068.2, 2 replicas 
+== trace mesh P=2048 seed=1
+[   7.8s] population 2,048 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards,
+[tt] first eager block of 4 generations (kernel compile) 13.3s, trace capture 0.3s
+[  25.8s] epoch   10  gens      44  swaps    0.09M    75.9k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1149.9, 5 replicas 
+[  26.8s] epoch   11  gens      48  swaps    0.10M     8.5k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1200.6, 18 replicas
+== trace mesh P=2048 seed=2
+[   7.8s] population 2,048 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards,
+[tt] first eager block of 4 generations (kernel compile) 7.2s, trace capture 0.3s
+[  18.6s] epoch   10  gens      44  swaps    0.09M    18.5k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1175.9, 5 replicas 
+[  18.9s] epoch   11  gens      48  swaps    0.10M    30.6k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1226.9, 32 replicas
+== trace mesh P=2048 seed=3
+[   7.8s] population 2,048 decks of 50 on 4 Tenstorrent device(s), trace of 4 generations; 4 generations per epoch; budget 40s; 2,377 cards,
+[tt] first eager block of 4 generations (kernel compile) 7.2s, trace capture 0.3s
+[  18.3s] epoch   10  gens      44  swaps    0.09M    68.8k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1171.2, 4 replicas 
+[  18.7s] epoch   11  gens      48  swaps    0.10M    21.2k swaps/s  best  1745  (epoch best 1745, mean of replica bests 1223.1, 23 replicas
+DONE

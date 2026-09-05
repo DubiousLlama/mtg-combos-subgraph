@@ -30,7 +30,13 @@ of **any size** counted once per unique card set.
   10 s, JSON load 3 s). The device move is weaker by design (best add, then
   best drop given the add) than the CPU's full pair scan; the top-t-adds
   variant would recover it at ~t× cost.
+- **Speed verdict (user goal, 2026-09-05): the device search is not worthwhile for this
+  application.** 44–48 generations to 1,745 in every run, but 14–26 s wall against the CPU's
+  0.7–2.6 s; the losing part is per-process setup that a sub-second problem cannot amortise.
+  Tracing is not the cause (eager is 1.8× slower). Details: dev log "Speed verdict".
 - No proof of optimality for 1,745; MILP deliberately not attempted.
+- The Kenrith artifact now has a "Combos of any size" entry with the 1,745 deck
+  (`scripts/add_any_size_to_artifact.py`, `scripts/fetch_card_images.py`).
 
 ## If work continues, in order
 

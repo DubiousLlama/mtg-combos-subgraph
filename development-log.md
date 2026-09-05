@@ -536,3 +536,44 @@ consecutive seeds being shifted copies), the six workarounds the search uses
 host-side integer sampling, host-noise verification) and what an op for
 scientific use would need. Probes: `scripts/rand_probe.py`,
 `scripts/rand_analysis.py`.
+
+### Speed verdict (user goal: beat the CPU on speed, or conclude with confidence)
+
+Measured on the 1 × 4 mesh, min-degree-16 pool, 4-generation epochs, three
+random seeds per population size (`scratchpad/speed.log`, CLI runs):
+
+| population (total) | generations to first 1,745 | wall time to 1,745 after instance load | of which setup (open + upload + first eager block + capture) |
+|---|---|---|---|
+| 512 | 44, 48, 44 | 15.7 / 14.3 / 14.1 s | 12.6 s |
+| 1,024 | 44, 44, >48 | 19.6 / 15.8 / – s | 13–16 s |
+| 2,048 | 44, 44, 44 | 25.8 / 18.6 / 18.3 s | 15–21 s |
+
+The device search itself is 44–48 generations in every run: 0.33 s of device
+time at P = 512 (7.4 ms per generation), 1.9 s at P = 4,096. What the user sees
+is 14–26 s because of per-process setup, and the instance load (3 s) comes
+before that clock starts. The CPU tabu reaches 1,745 at 0.7 s after instance
+load in 5 of 8 single-worker seeds and at 2.1–2.6 s with 28 contending
+workers; with 8 workers in parallel the chance that none hits in the first
+descent is (3/8)^8 ≈ 0.04 %.
+
+Tracing is not the cause (user question): the same P = 4,096 mesh run without
+a trace does 54k swaps/s against 97.7k traced, so removing the trace makes the
+step 1.8× slower; the trace capture itself costs 0.3 s. The 5–13 s "first
+eager block" is tt-metal program construction on first execution of each op
+(the tile-row `sum` alone is 6.7 s of it; kernel binaries are disk-cached),
+paid once per process with or without tracing.
+
+**Conclusion, high confidence: the device search is not worthwhile for this
+application on speed.** Cold start it loses 3–5× (17–29 s vs 4–6 s from
+process start, instance load included); the losing part (device open 5.5 s,
+program construction 5–13 s) is per-process and cannot be amortised by a
+problem that a single tabu descent solves in 0.7 s. In a resident process the
+device search phase (0.3–2 s) is at best comparable to the CPU's 0.7 s, not
+better, and the CPU makes the stronger move per swap. The device backend's
+advantage, ~85k swaps/s end to end against ~14k/s on 28 cores, only matters
+for searches needing millions of swaps, and this landscape has two attractors
+that every method reaches within its first hundred moves. Nothing above
+1,745 was found by any run (the best-of-all-runs deck is in
+`results/any-size/cpu-tabu-1745.txt`, also shown in the Kenrith artifact,
+https://claude.ai/code/artifact/f8496d2d-4d9b-4b54-ae59-ab2708237626, as the
+"Combos of any size" entry).
