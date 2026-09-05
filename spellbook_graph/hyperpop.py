@@ -192,9 +192,8 @@ class HyperPopulation:
                 base = np.zeros(self.n, dtype=np.float32)
                 base[d] = 1.0
                 self.X[:, c] = self.kick_decks(base, c.size, strength=self.rng.integers(0, self.kick + 1, c.size))
-        self.cnt = self.layout.counts(self.X)
         self.tabu = np.zeros((self.n, P), dtype=np.float32)
-        self.score = self.layout.scores(self.X).astype(np.float32)
+        self._init_state()
         self.best_score, self.best_deck = -1, None
         self.replica_best = np.full(P, -1, dtype=np.int64)
         self.replica_stale = np.zeros(P, dtype=np.int64)
@@ -202,6 +201,11 @@ class HyperPopulation:
         self._best_X = self.X.copy()
         self.generations = 0
         self.last_epoch: dict = {}
+
+    def _init_state(self) -> None:
+        """Host slot counts and scores for the initial decks (the device backend recomputes them on the device)."""
+        self.cnt = self.layout.counts(self.X)
+        self.score = self.layout.scores(self.X).astype(np.float32)
 
     def random_decks(self, P: int) -> np.ndarray:
         X = np.zeros((self.n, P), dtype=np.float32)

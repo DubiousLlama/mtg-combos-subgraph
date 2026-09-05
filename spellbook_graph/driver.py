@@ -164,8 +164,8 @@ def run_hyper(
             rate = population * epoch_gens / (time.time() - te)
             line = (
                 f"[{elapsed:6.1f}s] epoch {epoch:4d}  gens {ps.generations:7,d}  swaps {ps.generations * population / 1e6:7.2f}M  "
-                f"{rate / 1e3:6.1f}k swaps/s  best {best:5d}  (epoch best {stats.get('epoch_best', best)}, mean {stats.get('mean_best', 0):.1f}, "
-                f"{stats.get('replicas_at_best', 0)} at best, {stats.get('reseeded', 0)} reseeded"
+                f"{rate / 1e3:6.1f}k swaps/s  best {best:5d}  (epoch best {stats.get('epoch_best', best)}, mean of replica bests {stats.get('mean_best', 0):.1f}, "
+                f"{stats.get('replicas_at_best', 0)} replicas at {best}, {stats.get('reseeded', 0)} reseeded"
                 + (f", {transfer:.1f}s in transfers" if transfer else "") + ")"
             )
             history.append({"elapsed": round(elapsed, 1), "generations": ps.generations, "best": best, **stats})

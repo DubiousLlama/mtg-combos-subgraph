@@ -53,7 +53,9 @@ class TTHyperPopulation(HyperPopulation):
     def __init__(self, inst: HyperInstance, k: int, P: int, devices: int = 1, device_ids: list[int] | None = None,
                  fidelity: str = "hifi2", s_dtype: str = "bfloat16", trace: bool = True, gens_per_trace: int = 4,
                  trace_region_size: int = 256 << 20, fused_gather: bool = True, **kwargs):
+        t_init = time.time()
         super().__init__(inst, k, P, **kwargs)
+        t_layout = time.time() - t_init
         assert self.layout.I % 2048 == 0, "fused embedding gather needs a slot width that is a multiple of 2048"
         self.fused_gather = fused_gather
         self.ttnn = ttnn = _import_ttnn()
@@ -69,6 +71,7 @@ class TTHyperPopulation(HyperPopulation):
         else:
             self.device = ttnn.open_device(device_id=(device_ids or [0])[0], trace_region_size=trace_region_size)
             self._shard = self._repl = self._concat = None
+        t_open = time.time() - t_init - t_layout
         self.tile, self.rm = ttnn.TILE_LAYOUT, ttnn.ROW_MAJOR_LAYOUT
         self.bf16, self.f32, self.u32 = ttnn.bfloat16, ttnn.float32, ttnn.uint32
         self.transfer_seconds = 0.0
@@ -81,7 +84,7 @@ class TTHyperPopulation(HyperPopulation):
         self.dS = self._up(L.S, sdt, replicate=True)
         # tiled copy of Hinc plus the slot offsets and first-slot mask: reseeding recomputes cnt and score
         # on the device (cnt = Hinc^T X + offset) instead of uploading a rebuilt (I x P) tensor from the host
-        self.dHt = self._up(L.H, self.bf16, replicate=True)
+        self.dHt = ttnn.to_layout(self.dH, self.tile)  # tilized on the device: no second 1.5 GB upload
         self.doffset = self._up(L.offset[:, None], self.bf16, replicate=True)
         first = np.zeros((1, L.I), dtype=np.float32)
         first[0, L.edge_slots[L.edge_slots_ptr[:-1]]] = 1.0
@@ -97,7 +100,8 @@ class TTHyperPopulation(HyperPopulation):
         self.dsalt = ttnn.slice(self._up(np.repeat(salt, 32, axis=1), self.f32), [0, 0], [n, 1])  # (n,1) per device, persistent
         self._dstate = None
         self._trace_id = None
-        print(f"[tt] constants uploaded in {time.time() - t0:.1f}s: Hinc {n}x{L.I} ({n * L.I * 2 / 1e9:.2f} GB, twice), S {n}x{L.chunks}, P/device {Pd}", flush=True)
+        print(f"[tt] setup: host layout + incidence table {t_layout:.1f}s, device open {t_open:.1f}s, constants uploaded {time.time() - t0:.1f}s "
+              f"(Hinc {n}x{L.I} = {n * L.I * 2 / 1e9:.2f} GB, twice; S {n}x{L.chunks}); P/device {Pd}", flush=True)
 
     # -- transfers ---------------------------------------------------------
     def _host(self, arr: np.ndarray, dtype, layout=None, replicate: bool = False):
@@ -114,15 +118,31 @@ class TTHyperPopulation(HyperPopulation):
         return out
 
     def _write(self, arr: np.ndarray, dtype, dst) -> None:
-        """Overwrite a persistent device tensor in place (no allocation; safe between trace replays)."""
+        """Overwrite a persistent device tensor in place (the buffer stays put, so trace replays remain valid).
+        On a mesh the host-side tilize of a sharded tensor is slow (260 ms for 2400x4096 bf16), so the data
+        goes up row-major and is tilized on the device, then copied into the persistent buffer."""
+        nn = self.ttnn
         t0 = time.time()
-        self.ttnn.copy_host_to_device_tensor(self._host(arr, dtype), dst)
+        if self._shard is None or arr.shape[0] < 32:
+            nn.copy_host_to_device_tensor(self._host(arr, dtype), dst)
+        else:
+            rm = nn.to_device(self._host(arr, dtype, layout=self.rm), self.device)
+            tiled = nn.to_layout(rm, self.tile)
+            nn.add(tiled, 0.0, output_tensor=dst)
+            nn.deallocate(tiled)
+            nn.deallocate(rm)
         self.transfer_seconds += time.time() - t0
 
     def _down(self, t) -> np.ndarray:
+        """Device -> host. `to_torch` with a mesh composer takes ~2 s for a 2400x4096 bf16 tensor on the 1x4 mesh
+        (17 ms for one device's shard), so the shards are read one device at a time and concatenated on the host."""
+        nn = self.ttnn
         t0 = time.time()
-        kw = {"mesh_composer": self._concat} if self._concat is not None else {}
-        out = self.ttnn.to_torch(t, **kw).float().numpy()
+        if self._concat is None:
+            out = nn.to_torch(t).float().numpy()
+        else:
+            parts = [nn.to_torch(s) for s in nn.get_device_tensors(nn.from_device(t))]
+            out = self.torch.cat(parts, dim=1).float().numpy()
         self.transfer_seconds += time.time() - t0
         return out
 
@@ -228,15 +248,21 @@ class TTHyperPopulation(HyperPopulation):
         self._advance_salt()
 
     # -- epochs --------------------------------------------------------------
+    def _init_state(self) -> None:
+        pass  # cnt and score are computed on the device by _recount once the state tensors exist
+
     def _ensure_device_state(self) -> None:
         if self._dstate is None:
             self._dstate = True
+            nn = self.ttnn
             self._dX = self._up(self.X, self.bf16)
-            self._dcnt = self._up(self.cnt, self.bf16)
             self._dtabu = self._up(self.tabu, self.bf16)
-            self._dscore = self._up(self.score[None, :], self.f32)
             self._dbest = self._up(np.full((1, self.P), -1.0, dtype=np.float32), self.f32)
             self._dbestX = self._up(self.X, self.bf16)
+            self._dscore = self._up(np.zeros((1, self.P), dtype=np.float32), self.f32)
+            self._dcnt = nn.zeros((self.layout.I, self.Pd), device=self.device, dtype=self.bf16, layout=self.tile)
+            self._recount()
+            nn.synchronize_device(self.device)
 
     def _block(self):
         for g in range(self.G):
@@ -250,11 +276,12 @@ class TTHyperPopulation(HyperPopulation):
         self._block()  # compile pass (also a real block of generations)
         nn.synchronize_device(self.device)
         self.generations += self.G
+        t_compile = time.time() - t0
         self._trace_id = nn.begin_trace_capture(self.device, cq_id=0)
         self._block()  # recorded, not executed (verified: state is unchanged after capture)
         nn.end_trace_capture(self.device, self._trace_id, cq_id=0)
         nn.synchronize_device(self.device)
-        print(f"[tt] trace of {self.G} generations captured in {time.time() - t0:.1f}s", flush=True)
+        print(f"[tt] first eager block of {self.G} generations (kernel compile) {t_compile:.1f}s, trace capture {time.time() - t0 - t_compile:.1f}s", flush=True)
 
     def run_epoch(self, gens: int) -> int:
         nn = self.ttnn
@@ -292,17 +319,20 @@ class TTHyperPopulation(HyperPopulation):
     def _reseed(self, stale: np.ndarray, cols: np.ndarray) -> None:
         """Replace stale replicas: X comes back, the new columns go in, counts and scores are rebuilt on the device,
         and every persistent buffer is overwritten in place (no reallocation between trace replays)."""
+        nn = self.ttnn
         self.X = self._down(self._dX)
         self.X[:, stale] = cols
         self._write(self.X, self.bf16, self._dX)
         self._recount()
-        self._write(np.zeros((self.n, self.P), dtype=np.float32), self.bf16, self._dtabu)
-        best = self._down(self._dbest)
-        best[0, stale] = -1.0
-        self._write(best, self.f32, self._dbest)
-        bestX = self._down(self._dbestX)
-        bestX[:, stale] = cols
-        self._write(bestX, self.bf16, self._dbestX)
+        nn.multiply(self._dtabu, 0.0, output_tensor=self._dtabu)
+        mask = np.zeros((1, self.P), dtype=np.float32)  # 1 on reseeded replicas: best <- -1, bestX <- new deck, on the device
+        mask[0, stale] = 1.0
+        dm = self._up(mask, self.f32)
+        nn.add(nn.multiply(self._dbest, nn.subtract(nn.multiply(dm, -1.0), -1.0)), nn.multiply(dm, -1.0), output_tensor=self._dbest)
+        mb = self.ttnn.typecast(dm, self.bf16)
+        nn.add(self._dbestX, nn.multiply(mb, nn.subtract(self._dX, self._dbestX)), output_tensor=self._dbestX)
+        nn.deallocate(mb)
+        nn.deallocate(dm)
 
     def close(self) -> None:
         if self._trace_id is not None:

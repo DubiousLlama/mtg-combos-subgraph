@@ -440,3 +440,99 @@ gone. Not yet run at scale or on the mesh; see HANDOFF.md.
 Device findings: `embedding(layout=TILE)` wrong beyond 512 KB rows; `sum` on
 bf16 rounds its output (1,023 → 1,024); `reshape` to a 4-D tile view is a real
 copy; capture does not execute. Full list in HANDOFF.md.
+
+## 2026-09-05 — any-size search: driver, mesh, device findings, and an honest comparison
+
+Picked up from HANDOFF.md. Done today:
+
+- **Driver + CLI.** `driver.run_hyper` and `search` dispatching on
+  `hypergraph.json` (backends cpu / numpy / tt; `--min-degree`, `--max-size`,
+  `--gens-per-trace`, `--no-trace`, `--seed-deck`, `--seed-fraction`,
+  `--big-kick`, `--stale-epochs`). Every new incumbent is rescored on the host
+  from scratch before it is written. Min-degree pruning now iterates to a
+  fixpoint (min-degree 16: 2,377 cards, 75,161 combos, 269,825 incidences,
+  305,152 padded slots). `tests/test_hyper.py` (8 tests: exact swap deltas,
+  tabu and population vs brute force, seeding/reseeding).
+- **Fused gather.** The note in `notes/ttnn-embedding-tile-chunk-alignment-bug.md`
+  (moved in from `../mtg-combos`) pins the `embedding(layout=TILE)` corruption
+  to row widths that are not a multiple of 2048 elements with more than one
+  32-row block per core. `SlotLayout` now pads the slot width to a multiple of
+  2048 and the gather uses the fused tile-output path, dropping the separate
+  tilize. Bit-for-bit exact against the NumPy reference at P = 256 and at
+  P = 4,096 (1.2 row blocks per core, the case that used to corrupt).
+- **Device-side reseed.** Reseeding used to rebuild the (I × P) slot tensor on
+  the host (5 GB float32 at P = 4,096) and upload it. Now only X goes up; the
+  device recomputes `cnt = Hincᵀ X + offset` with one matmul against a tiled
+  copy of the incidence table (33 ms at P = 1,024/device, 2.7 s the first time
+  for the compile) and `score = first_slot_mask @ (cnt == 1)`, and the stale
+  mask zeroes `best` / copies `bestX` on the device. The initial state uses the
+  same recount (the 43 s initial upload is gone). Verified: recount equals the
+  incremental counts exactly, and replays after a reseed stay consistent with
+  host rescoring (`scripts/check_reseed.py`).
+- **Mesh.** The 1 × 4 path worked unchanged: replay == eager, salt differs per
+  device. Two mesh-specific transfer problems were found and worked around in
+  `_down` / `_write`:
+  `ttnn.to_torch(t, mesh_composer=ConcatMeshToTensor)` takes **2.0 s** for a
+  2,400 × 4,096 bf16 tensor (17 ms for one device's shard; reading the shards
+  with `get_device_tensors` and concatenating on the host takes 25–50 ms), and
+  `from_torch(..., layout=TILE, mesh_mapper=Shard…)` takes 260 ms for the same
+  tensor (host tilize), against 2 ms for a row-major upload tilized on the
+  device. Per-epoch transfer overhead went from ~2.3 s to ~0.3 s.
+
+### Throughput (trace replay, min-degree 16, 4 generations per trace)
+
+| P total | devices | ms / generation | swaps / s |
+|---|---|---|---|
+| 1,024 | 1 | 43.8 | 23.4k |
+| 4,096 | 1 | 169 | 24.2k |
+| 512 | 4 (mesh) | 7.4 | 69.5k |
+| 4,096 | 4 (mesh) | 42 | 97.7k (85k end to end with reseeding) |
+
+Per replica the cost is flat at ~41 µs from 1,024 replicas per device up: the
+generation is bandwidth-bound on the (I × P) slot tensor (about 18 read/write
+passes ≈ 12 GB per generation at P = 1,024, i.e. ~270 GB/s), not dispatch-bound
+any more. Setup before the first generation: ~11 s (device open + constants)
+plus ~11 s trace capture.
+
+### Time to the 1,745 attractor, random starts
+
+| method | first 1,745 | notes |
+|---|---|---|
+| CPU tabu, one worker, min-degree-16 pool | 0.7 s in 5 of 8 seeds, 29.8 s in 1, never (stuck at 1,692 for 240 s) in 2 | `scripts/cpu_time_to_best.py` |
+| CPU tabu, one worker, full pool | 1.2 / 32.7 / 66.9 / 81.2 / 88.7 / 122.1 s in 6 of 8 seeds, never in 2 | |
+| TT population, P = 4,096 on 4 cards | generation 44 = 1.9 s of device time, 36.6 s wall | `data/deck_any_tt_time/` |
+| TT population, P = 1,024 on 1 card | generation 32 (`scripts/check_reseed.py`) | |
+
+No run of any backend has produced anything above 1,745: the 4-minute mesh run
+(8.6 M swaps, reseeding with random decks and 6–20-card kicks of the
+incumbent) and the 2-minute run both sat at 1,745 from the first epoch,
+with ~1,900 of 4,096 replicas at 1,745 in steady state.
+
+### Assessment (user: "does the density make TT hardware unnecessary here?")
+
+For this instance, yes. The landscape has two attractors, 1,692 and 1,745,
+and the first tabu descent reaches one of them in under a second on one CPU
+core; a handful of restarts reach 1,745. The device search finds the same
+value in ~2 s of device time but needs ~20 s of setup, and it makes a weaker
+move per swap by design (best add by gain, then best drop given the add,
+versus the CPU's full k × (n − k) pair scan with the `corr[a,b]` term). That
+is a design choice for O(passes over I × P) per generation, not a hardware
+limit: evaluating the top-t adds per replica would recover the CPU's move at
+about t× the cost. The hardware would matter for searches needing millions
+of swaps (larger pools, no commander, several objectives), where it delivers
+~85k swaps/s against ~14k/s on 28 cores. Nothing about this instance needs
+that, and the honest result is that 1,745 is the best any method finds,
+with no proof of optimality (MILP deliberately not attempted, see 2026-09-04).
+
+### `ttnn.rand` (user request for the devops team)
+
+`notes/ttnn-rand-for-scientific-compute.md` documents what the op does
+(float32 on the SFPU PRNG; `seed + core_index` per core; unseeded = host
+`mt19937` seeded from wall-clock seconds; the same numbers on every mesh
+device and on every trace replay), its measured quality (94 distinct values
+per 1,024-value tile, lag-1 autocorrelation 0.31, bf16 output reaching 1.0,
+consecutive seeds being shifted copies), the six workarounds the search uses
+(sharded salt, on-device Weyl sequence, 1/128 quantisation, seed spacing,
+host-side integer sampling, host-noise verification) and what an op for
+scientific use would need. Probes: `scripts/rand_probe.py`,
+`scripts/rand_analysis.py`.
