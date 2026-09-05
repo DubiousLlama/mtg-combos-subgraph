@@ -138,12 +138,20 @@ def load_hyper_instance(graph_dir: Path, commander: str | None = "Kenrith, the R
         seen.add(cards)
         rest.append(cards)
 
-    degree = np.zeros(n, dtype=np.int64)
-    for cards in rest:
-        for c in cards:
-            degree[c] += 1
     excluded = {name.lower() for name in (exclude or [])}
-    keep = [i for i in range(n) if i != cmdr_idx and names[i].lower() not in excluded and ((degree[i] + bonus_full[i]) >= max(1, min_degree))]
+    alive = np.ones(n, dtype=bool)
+    alive[[i for i in range(n) if i == cmdr_idx or names[i].lower() in excluded]] = False
+    while True:  # prune to a fixpoint: dropping a card kills its combos, which lowers other cards' degrees
+        degree = np.zeros(n, dtype=np.int64)
+        for cards in rest:
+            if all(alive[c] for c in cards):
+                for c in cards:
+                    degree[c] += 1
+        drop = alive & ((degree + bonus_full) < max(1, min_degree))
+        if not drop.any():
+            break
+        alive &= ~drop
+    keep = [i for i in range(n) if alive[i]]
     keep_set = set(keep)
     remap = {orig: new for new, orig in enumerate(keep)}
     m = len(keep)

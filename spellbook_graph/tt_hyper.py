@@ -52,8 +52,10 @@ def _import_ttnn():
 class TTHyperPopulation(HyperPopulation):
     def __init__(self, inst: HyperInstance, k: int, P: int, devices: int = 1, device_ids: list[int] | None = None,
                  fidelity: str = "hifi2", s_dtype: str = "bfloat16", trace: bool = True, gens_per_trace: int = 4,
-                 trace_region_size: int = 256 << 20, **kwargs):
+                 trace_region_size: int = 256 << 20, fused_gather: bool = True, **kwargs):
         super().__init__(inst, k, P, **kwargs)
+        assert self.layout.I % 2048 == 0, "fused embedding gather needs a slot width that is a multiple of 2048"
+        self.fused_gather = fused_gather
         self.ttnn = ttnn = _import_ttnn()
         self.torch = __import__("torch")
         self.n_devices = devices
@@ -77,6 +79,13 @@ class TTHyperPopulation(HyperPopulation):
         self.dH = self._up(L.H, self.bf16, layout=self.rm, replicate=True)
         sdt = {"bfloat16": ttnn.bfloat16, "bfp8": ttnn.bfloat8_b, "bfp4": ttnn.bfloat4_b}[s_dtype]
         self.dS = self._up(L.S, sdt, replicate=True)
+        # tiled copy of Hinc plus the slot offsets and first-slot mask: reseeding recomputes cnt and score
+        # on the device (cnt = Hinc^T X + offset) instead of uploading a rebuilt (I x P) tensor from the host
+        self.dHt = self._up(L.H, self.bf16, replicate=True)
+        self.doffset = self._up(L.offset[:, None], self.bf16, replicate=True)
+        first = np.zeros((1, L.I), dtype=np.float32)
+        first[0, L.edge_slots[L.edge_slots_ptr[:-1]]] = 1.0
+        self.dfirst = self._up(first, self.bf16, replicate=True)
         n, Pd = self.n, P // devices
         self.Pd = Pd
         self.dvalid = self._up(np.repeat(L.valid[:, None].astype(np.float32), Pd, axis=1), self.bf16, replicate=True)
@@ -88,7 +97,7 @@ class TTHyperPopulation(HyperPopulation):
         self.dsalt = ttnn.slice(self._up(np.repeat(salt, 32, axis=1), self.f32), [0, 0], [n, 1])  # (n,1) per device, persistent
         self._dstate = None
         self._trace_id = None
-        print(f"[tt] constants uploaded in {time.time() - t0:.1f}s: Hinc {n}x{L.I} ({n * L.I * 2 / 1e9:.2f} GB), S {n}x{L.chunks}, P/device {Pd}", flush=True)
+        print(f"[tt] constants uploaded in {time.time() - t0:.1f}s: Hinc {n}x{L.I} ({n * L.I * 2 / 1e9:.2f} GB, twice), S {n}x{L.chunks}, P/device {Pd}", flush=True)
 
     # -- transfers ---------------------------------------------------------
     def _host(self, arr: np.ndarray, dtype, layout=None, replicate: bool = False):
@@ -167,9 +176,14 @@ class TTHyperPopulation(HyperPopulation):
         lo = nn.sum(nn.multiply(hot, self.dilo), dim=-2, keepdim=True)
         idx = nn.add(nn.multiply(nn.typecast(hi, self.f32), 32.0), nn.subtract(nn.typecast(lo, self.f32), 33.0))
         idx = nn.to_layout(nn.typecast(idx, self.u32), self.rm)
-        # NB: embedding(..., layout=TILE_LAYOUT) returns wrong rows once a row exceeds 512 KB (checked); gather row-major, then tilize.
-        rows = nn.embedding(idx, self.dH)  # (1, P, I) row-major
-        rows = nn.to_layout(nn.reshape(rows, (self.Pd, self.layout.I)), self.tile)
+        if self.fused_gather:
+            # fused tile-output gather: safe only because SlotLayout pads I to a multiple of 2048
+            # (notes/ttnn-embedding-tile-chunk-alignment-bug.md); otherwise rows past the first 32-row
+            # block on a core come back wrong, or the board hangs.
+            rows = nn.reshape(nn.embedding(idx, self.dH, layout=self.tile), (self.Pd, self.layout.I))
+        else:
+            rows = nn.embedding(idx, self.dH, layout=self.rm)  # (1, P, I) row-major: exact at every width
+            rows = nn.to_layout(nn.reshape(rows, (self.Pd, self.layout.I)), self.tile)
         return nn.transpose(rows, -2, -1)
 
     def _device_generation(self, X, cnt, tabu, score, noise_out=None, noise_in=None, seed: int = 0):
@@ -260,15 +274,28 @@ class TTHyperPopulation(HyperPopulation):
         self._bookkeep(best_now, lambda p: self._down(self._dbestX)[:, p])
         return self.best_score
 
+    def _recount(self) -> None:
+        """cnt = Hinc^T X + offset and score = #complete combos, recomputed on the device from X into the
+        persistent buffers. Every temporary is freed again so the trace's intermediate buffers stay where
+        they were captured."""
+        nn = self.ttnn
+        XT = nn.transpose(self._dX, -2, -1)  # (P, n)
+        R = nn.matmul(XT, self.dHt, dtype=self.bf16, compute_kernel_config=self.mm_config)  # (P, I) counts <= 10: exact
+        RT = nn.transpose(R, -2, -1)
+        nn.add(RT, self.doffset, output_tensor=self._dcnt)
+        full = nn.eq(self._dcnt, 1.0)
+        score = nn.matmul(self.dfirst, full, dtype=self.f32, compute_kernel_config=self.mm_config)  # (1, P) fp32 accumulation: exact
+        nn.add(score, 0.0, output_tensor=self._dscore)
+        for t in (XT, R, RT, full, score):
+            nn.deallocate(t)
+
     def _reseed(self, stale: np.ndarray, cols: np.ndarray) -> None:
-        """Replace stale replicas: X comes back, counts/scores are rebuilt on the host, persistent buffers are overwritten in place."""
+        """Replace stale replicas: X comes back, the new columns go in, counts and scores are rebuilt on the device,
+        and every persistent buffer is overwritten in place (no reallocation between trace replays)."""
         self.X = self._down(self._dX)
         self.X[:, stale] = cols
-        self.cnt = self.layout.counts(self.X)
-        self.score = self.layout.scores(self.X).astype(np.float32)
         self._write(self.X, self.bf16, self._dX)
-        self._write(self.cnt, self.bf16, self._dcnt)
-        self._write(self.score[None, :], self.f32, self._dscore)
+        self._recount()
         self._write(np.zeros((self.n, self.P), dtype=np.float32), self.bf16, self._dtabu)
         best = self._down(self._dbest)
         best[0, stale] = -1.0

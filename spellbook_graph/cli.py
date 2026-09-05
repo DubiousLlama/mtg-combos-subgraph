@@ -29,6 +29,56 @@ def _add_filter_args(parser: argparse.ArgumentParser) -> None:
     group.add_argument("--card-count", type=int, default=2, help="cards per combo (default 2; 0 = any size, builds a hypergraph)")
 
 
+def _read_seed_deck(inst, path: Path):
+    """Card indices of a deck given as deck.json (cards[].name) or deck.txt ('1 Name' lines)."""
+    import numpy as np
+    text = path.read_text()
+    if path.suffix == ".json":
+        names = [c["name"] for c in json.loads(text)["cards"]]
+    else:
+        names = [line.split(" ", 1)[1].strip() for line in text.splitlines() if line[:1].isdigit()]
+    index = {name.lower(): i for i, name in enumerate(inst.names)}
+    missing = [n for n in names if n.lower() not in index]
+    if missing:
+        print(f"seed deck {path}: {len(missing)} cards not in the pool (ignored): {', '.join(missing[:5])}", file=sys.stderr)
+    return np.array(sorted({index[n.lower()] for n in names if n.lower() in index}), dtype=np.int64)
+
+
+def _search_hyper(args) -> int:
+    import os
+    from .hyper import load_hyper_instance, parallel_search, write_result
+    inst = load_hyper_instance(args.graph, args.commander, exclude=args.exclude, results=args.result,
+                               prereqs="none" if args.strict else args.prereqs, min_degree=args.min_degree, max_size=args.max_size)
+    sizes = {}
+    for r in inst.r:
+        sizes[int(r)] = sizes.get(int(r), 0) + 1
+    print(f"{inst.m:,} candidate cards, {inst.E:,} usable combos ({', '.join(f'{s}-card {c:,}' for s, c in sorted(sizes.items()))}), "
+          f"{len(inst.edge_cards):,} incidences" + (f"; commander {inst.commander} alone completes {int(inst.bonus.sum())} combos" if inst.commander else ""),
+          file=sys.stderr)
+    seed_decks = [_read_seed_deck(inst, Path(p)) for p in args.seed_deck]
+    for p, d in zip(args.seed_deck, seed_decks):
+        print(f"seed deck {p}: {d.size} cards in pool, score {inst.score(d)}", file=sys.stderr)
+    if args.backend in ("tt", "numpy"):
+        from .driver import run_hyper
+        device_ids = [int(x) for x in args.device_ids.split(",") if x] or None
+        result = run_hyper(inst, args.slots, args.seconds, args.out, backend=args.backend, population=args.population or 4096, devices=args.devices,
+                           epoch_gens=args.epoch_gens or 100, seed=args.seed, kick=args.kick, stale_epochs=args.stale_epochs,
+                           gens_per_trace=args.gens_per_trace, trace=not args.no_trace, device_ids=device_ids,
+                           seed_decks=seed_decks, seed_fraction=args.seed_fraction, big_kick=args.big_kick)
+    else:
+        jobs = args.jobs or min(32, os.cpu_count() or 1)
+        print(f"searching for {args.slots} cards: {jobs} workers x {args.seconds:.0f}s", file=sys.stderr)
+        members, score, stats = parallel_search(inst, args.slots, args.seconds, jobs, tabu_iters=args.tabu_iters, rcl=args.rcl, kick=args.kick, seed0=args.seed)
+        result = write_result(args.out, inst, members, {"backend": "cpu", "seconds": args.seconds, "jobs": jobs, "min_degree": args.min_degree, "workers": stats})
+    print(f"best: {result['score']} combos of any size ({result['combos_among_deck_cards']} among deck cards + {result['combos_with_commander']} with the commander); "
+          f"by size: {result['combos_by_size']}")
+    print(f"{'combos':>7}  card")
+    for card in result["cards"]:
+        print(f"{card['combos_in_deck']:7d}  {card['name']}")
+    print(f"wrote {args.out}/deck.json and {args.out}/deck.txt", file=sys.stderr)
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="spellbook-graph", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -56,14 +106,24 @@ def main(argv: list[str] | None = None) -> int:
     p_search.add_argument("--rcl", type=int, default=8, help="greedy candidate list width")
     p_search.add_argument("--kick", type=int, default=6, help="cards replaced per perturbation")
     p_search.add_argument("--backend", choices=["cpu", "tt", "numpy"], default="cpu", help="cpu: per-core tabu search; tt: population search on Tenstorrent devices; numpy: the same population search on CPU")
-    p_search.add_argument("--population", type=int, default=65536, help="decks per generation for tt/numpy backends (multiple of 32 x devices)")
+    p_search.add_argument("--population", type=int, default=0, help="decks per generation for tt/numpy backends (multiple of 32 x devices; default 65536 for two-card graphs, 4096 for hypergraphs)")
     p_search.add_argument("--devices", type=int, default=4, help="Tenstorrent devices to use as a 1xN mesh")
-    p_search.add_argument("--epoch-gens", type=int, default=300, help="generations between host-side reseeding / progress lines")
+    p_search.add_argument("--epoch-gens", type=int, default=0, help="generations between host-side reseeding / progress lines (default 300, hypergraph 100)")
     p_search.add_argument("--seed", type=int, default=0)
     p_search.add_argument("--exclude", action="append", default=[], help="card name to leave out (repeatable)")
     p_search.add_argument("--strict", action="store_true", help="only combos with no notable prerequisites whose cards start on the battlefield or in hand")
     p_search.add_argument("--prereqs", choices=["any", "none", "kenrith"], default="any", help="prerequisite policy (kenrith: allow what the commander or the two cards provide)")
     p_search.add_argument("--result", action="append", default=[], help="regex a combo's produced feature must match, e.g. '^Infinite turns' (repeatable, any match counts)")
+    hyper = p_search.add_argument_group("hypergraph (any-size combos; used when --graph holds hypergraph.json)")
+    hyper.add_argument("--min-degree", type=int, default=1, help="drop cards with fewer combos in the pool (heuristic pruning; 1 = exact)")
+    hyper.add_argument("--max-size", type=int, default=0, help="drop combos with more cards than this (0 = keep all)")
+    hyper.add_argument("--gens-per-trace", type=int, default=4, help="generations captured in one device trace (tt backend)")
+    hyper.add_argument("--no-trace", action="store_true", help="run the tt backend eagerly instead of replaying a trace")
+    hyper.add_argument("--device-ids", default="", help="comma-separated device ids (single device only; default 0)")
+    hyper.add_argument("--stale-epochs", type=int, default=3, help="epochs without improvement before a replica is reseeded")
+    hyper.add_argument("--big-kick", type=int, default=20, help="cards replaced when a stale replica is reseeded from the incumbent with a large kick")
+    hyper.add_argument("--seed-deck", action="append", default=[], help="deck.json/deck.txt to seed replicas from (repeatable)")
+    hyper.add_argument("--seed-fraction", type=float, default=0.0, help="fraction of the initial population seeded (kicked copies) from --seed-deck decks")
 
     p_stats = sub.add_parser("stats", help="summarise a built graph")
     p_stats.add_argument("--graph", type=Path, default=Path("data/graph"))
@@ -117,6 +177,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "search":
         import os
+        if (args.graph / "hypergraph.json").exists():
+            return _search_hyper(args)
         from .search import load_instance, parallel_search, describe
         inst = load_instance(args.graph, args.commander, exclude=args.exclude, results=args.result, strict=args.strict, prereqs=args.prereqs)
         jobs = args.jobs or min(32, os.cpu_count() or 1)
@@ -126,8 +188,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"searching for {args.slots} cards: {jobs} workers x {args.seconds:.0f}s", file=sys.stderr)
         if args.backend in ("tt", "numpy"):
             from .driver import run
-            result = run(inst, args.slots, args.seconds, args.out, backend=args.backend, population=args.population,
-                         devices=args.devices, epoch_gens=args.epoch_gens, seed=args.seed, kick=args.kick)
+            result = run(inst, args.slots, args.seconds, args.out, backend=args.backend, population=args.population or 65536,
+                         devices=args.devices, epoch_gens=args.epoch_gens or 300, seed=args.seed, kick=args.kick)
             print(f"best: {result['score']} combos ({result['combos_among_deck_cards']} in-deck + {result['combos_with_commander']} with commander)")
             for card in result["cards"]:
                 print(f"{card['combos_in_deck']:7d}  {card['name']}")
